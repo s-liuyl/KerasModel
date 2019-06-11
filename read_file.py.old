@@ -1,0 +1,15 @@
+#
+import sys
+
+if len(sys.argv) != 1:
+	print("The parameter is not correct!\n")
+	exit(-1)
+inputfile = sys.argv[0]
+
+
+f = open(inputfile, 'r')
+x = f.readlines()
+f.close()
+
+for line in x:
+	print(line)
