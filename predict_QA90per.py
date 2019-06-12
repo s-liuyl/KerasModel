@@ -113,7 +113,6 @@ print(pred)
 
 #determining loss and correlation coefficient
 loss = []
-correlation = []
 IDs = []
 predictedYs = []
 actualYs = []
@@ -140,26 +139,14 @@ for ID in dict:
 
 correlation_scipy = []
 for i in range(len(IDs)):
-	meanP = np.mean(predictedYs[i])
-	meanA = np.mean(actualYs[i])
-	devP = predictedYs[i] - meanP
-	devA = 	actualYs[i] - meanA
-	devsQP = np.sum(devP**2)
-	devsQA = np.sum(devA**2)
-	length = len(predictedYs[i])
-	sP = math.sqrt(devsQP/(length-1))
-	sA = math.sqrt(devsQA/(length-1))
-	correlation.append((np.sum(np.multiply(devP, devA))/(sP*sA))/(length-1))
 	corr, p_value = pearsonr(predictedYs[i],actualYs[i])
 	correlation_scipy.append(corr)
 
 for i in range(len(IDs)):
-	print(IDs[i]+" - loss: %.2f, correlation: %f, correlation_scipy: %f" %(loss[i], correlation[i], correlation_scipy[i]))
+	print(IDs[i]+" - loss: %.2f, correlation: %f" %(loss[i], correlation_scipy[i]))
 
 l = np.asarray(loss)
 avgL = np.mean(l)
-c = np.asarray(correlation)
-avgC = np.mean(c)
 avgC2 = np.mean(np.asarray(correlation_scipy))
-print("average loss: %f, average correlation: %f, average correlation_scipy: %f" %(avgL,avgC, avgC2))
+print("average loss: %f, average correlation: %f" %(avgL, avgC2))
 
