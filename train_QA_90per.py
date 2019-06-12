@@ -80,8 +80,6 @@ def baseline_model():
 	# create model
 	model = Sequential()
 	model.add(Dense(5, input_dim=features, kernel_initializer='normal', activation='relu'))
-	#model.add(Dense(5,kernel_initializer='normal',activation = 'relu'))
-	#model.add(Dense(5, kernel_initializer = 'normal',activation = 'relu'))
 	model.add(Dense(1, kernel_initializer='normal'))
 	# Compile model
 	model.compile(loss='mean_squared_error', optimizer='adam')
@@ -89,8 +87,22 @@ def baseline_model():
 # fix random seed for reproducibility
 seed = 7
 np.random.seed(seed)
+if len(sys.argv) == 3:
 
-train_model = baseline_model()
+	train_model = baseline_model()
+else:
+	reader = open(sys.argv[3], 'r') 
+	architecture = reader.readline()
+	reader.close()
+	arch = architecture.split(' ')
+	model = Sequential()
+	model.add(Dense(int(arch[0]), input_dim=features, kernel_initializer='normal', activation='relu'))	
+	for i in range(1,len(arch)):
+		model.add(Dense(int(arch[i]),kernel_initializer='normal',activation = 'relu'))
+	model.add(Dense(1, kernel_initializer='normal'))
+	model.compile(loss='mean_squared_error', optimizer='adam')
+	train_model = model
+
 train_model.compile(loss='mean_squared_error', optimizer='adam')
 
 # Fit the model
@@ -112,14 +124,16 @@ train_model.fit(X, Y, epochs=50, batch_size=1000,verbose=1)
 scores = train_model.evaluate(X, Y, verbose=0)
 print("\n\nThe mse is ",scores)
 
-
+resFolder = sys.argv[2]
+if resFolder.rfind('/') != len(resFolder)-1:
+	resFolder = resFolder+'/'
 ### save the model 
 # serialize model to JSON
 model_json = train_model.to_json()
-with open("./models/model90percent_"+filename+".json", "w") as json_file:
+with open(resFolder+"model90percent_"+filename+".json", "w") as json_file:
     json_file.write(model_json)
 # serialize weights to HDF5
-train_model.save_weights("./models/model90percent_"+filename+".h5")
+train_model.save_weights(resFolder+"model90percent_"+filename+".h5")
 print("Saved model to disk")
 
 
