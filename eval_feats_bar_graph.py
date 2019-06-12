@@ -158,18 +158,21 @@ for i in range(len(labels)):
 	labels[i] = s[(1+s.index(":")):]
 print(labels)
 i = np.arange(len(labels))
+resFolder = sys.argv[2]
+if resFolder.rfind('/') != len(resFolder)-1:
+	resFolder = resFolder+'/'
 plt.bar(i,avgL)
 plt.xlabel('Features', fontsize = 5)
 plt.ylabel('Average Loss', fontsize = 5)
 plt.xticks(i, labels, fontsize = 5, rotation = 30)
 plt.title('Average Loss for each feature')
-plt.savefig('./results/avgL_'+filename+'.png', format = 'png')
+plt.savefig(resFolder + 'avgL_'+filename+'.png', format = 'png')
 plt.bar(i,avgC)
 plt.xlabel('Features', fontsize = 5)
 plt.ylabel('Average Correlation', fontsize = 5)
 plt.xticks(i, labels, fontsize = 5, rotation = 30)
 plt.title('Average Correlation for each feature')
-plt.savefig('./results/avgC_'+filename+'.png', format = 'png')
+plt.savefig(resFolder + 'avgC_'+filename+'.png', format = 'png')
 
 
 
