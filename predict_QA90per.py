@@ -137,16 +137,24 @@ for ID in dict:
 	predictedYs.append(np.asarray(p))
 	actualYs.append(np.asarray(a))
 
+
+
+
+
 correlation_scipy = []
 for i in range(len(IDs)):
 	corr, p_value = pearsonr(predictedYs[i],actualYs[i])
 	correlation_scipy.append(corr)
-
-for i in range(len(IDs)):
-	print(IDs[i]+" - loss: %.2f, correlation: %f" %(loss[i], correlation_scipy[i]))
-
 l = np.asarray(loss)
 avgL = np.mean(l)
-avgC2 = np.mean(np.asarray(correlation_scipy))
-print("average loss: %f, average correlation: %f" %(avgL, avgC2))
+avgC = np.mean(np.asarray(correlation_scipy))
 
+
+resFolder = sys.argv[2]
+if resFolder.rfind('/') != len(resFolder)-1:
+        resFolder = resFolder+'/'
+writer = open(resFolder+filename +'.txt', 'w')
+for i in range(len(IDs)):
+	writer.write(IDs[i]+" - loss: %.2f, correlation: %f\n" %(loss[i], correlation_scipy[i]))
+writer.write("average loss: %f, average correlation: %f" %(avgL, avgC))
+writer.close()
