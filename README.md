@@ -43,11 +43,15 @@ Install appropriate libraries
 ```
 
 ### Data and Results
-1. Create a directory for results
+1. Create a directory for data, results, and models
 ```
   cd ~/KerasModel/ 
   mkdir results
+  mkdir models
+  mkdir data
 ```  
+The trained model including its weights will be stored in the models directory after train_QA_90per.py is run.
+
 The results for evaluating the features will appear as bar graph png in the results directory after eval_feats_bar_graph.py is run.
 
 ### Running the code
