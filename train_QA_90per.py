@@ -116,10 +116,10 @@ print("\n\nThe mse is ",scores)
 ### save the model 
 # serialize model to JSON
 model_json = train_model.to_json()
-with open("model90percent_"+filename+".json", "w") as json_file:
+with open("./models/model90percent_"+filename+".json", "w") as json_file:
     json_file.write(model_json)
 # serialize weights to HDF5
-train_model.save_weights("model90percent_"+filename+".h5")
+train_model.save_weights("./models/model90percent_"+filename+".h5")
 print("Saved model to disk")
 
 
