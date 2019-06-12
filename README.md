@@ -1,6 +1,6 @@
 # KerasModel
 
-##Installation Steps
+## Installation Steps
 
 1. Download and Unzip KerasModel package
 Create a working directory called 'KerasModel' where all scripts, programs and databases will reside:
@@ -37,14 +37,14 @@ Install appropriate libraries
   }
   
 
-##Data and Results
+## Data and Results
 2. Create a directory for results
   cd ~/KerasModel/ 
   mkdir results
   
 The results for evaluating the features will appear as bar graph png in the results directory after eval_feats_bar_graph.py is run.
 
-##Running the code
+## Running the code
 3. In order to run the code, the directory for the datasets must be an argument.
 For example, 
   python train_QA_90per.py data/QA_score_CASP8_9_10_11_features_singlemodel_20190530.txt
