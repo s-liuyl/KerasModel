@@ -2,7 +2,8 @@
 
 ### Installation Steps
 
-1. Download and Unzip KerasModel package
+1. Download and Unzip KerasModel package.
+
 Create a working directory called 'KerasModel' where all scripts, programs and databases will reside:
 ```
   cd ~
@@ -13,6 +14,7 @@ Download the KerasModel code:
   git clone https://github.com/s-liuyl/KerasModel.git
 ```
 2. Install numpy, sklearn, keras, theano, matplotlib, and pandas.
+
 Create python virtual environment (if not installed)
 ```
   cd ~/KerasModel/  
@@ -50,6 +52,7 @@ The results for evaluating the features will appear as bar graph png in the resu
 
 ### Running the code
 1. In order to run the code, the directory for the datasets must be an argument.
+
 For example, 
 ```
   python train_QA_90per.py data/QA_score_CASP8_9_10_11_features_singlemodel_20190530.txt
