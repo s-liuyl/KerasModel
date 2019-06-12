@@ -9,9 +9,9 @@ Create a working directory called 'KerasModel' where all scripts, programs and d
   mkdir KerasModel
 ```
 Download the KerasModel code:
-
+```
   git clone https://github.com/s-liuyl/KerasModel.git
-  
+```
 2. Install numpy, sklearn, keras, theano, matplotlib, and pandas.
 Create python virtual environment (if not installed)
 ```
