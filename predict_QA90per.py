@@ -16,6 +16,7 @@
 import numpy as np
 import math
 import pandas
+import glob
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasRegressor
@@ -74,15 +75,25 @@ for ID in dict:
                 
         	X.append(x) 
 	dict[ID] = Is
-
+modelFolder = sys.argv[3]
+if len(sys.argv) == 4:
+	modelFolder = sys.argv[3]
+	if modelFolder.rfind('/') != len(modelFolder)-1:
+        	modelFolder = modelFolder+'/'
+	h5File = glob.glob(modelFolder+"*.h5")[0]
+	jsonFile = glob.glob(modelFolder+"*.json")[0]
+else:
+	jsonFile = sys.argv[3]
+	h5File = sys.argv[4]
+	
 #### load the model
 # load json and create model
-json_file = open("./models/model90percent_"+filename+".json", 'r')
+json_file = open(jsonFile, 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 loaded_model = model_from_json(loaded_model_json)
 # load weights into new model
-loaded_model.load_weights("./models/model90percent_"+filename+".h5")
+loaded_model.load_weights(h5File)
 print("Loaded model from disk")
 
 
