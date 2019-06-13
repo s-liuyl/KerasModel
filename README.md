@@ -30,6 +30,7 @@ Install appropriate libraries
   pip install numpy
   pip install panda
   pip install matplotlib
+  pip install glob
 ```
 3. Modify ~/keras/keras.json to use theano as the backend.
 ```
