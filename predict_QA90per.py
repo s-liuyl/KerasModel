@@ -2,7 +2,17 @@
 #                                                                     #
 #	predict_QA90percent.py                                        #
 #                                                                     #
-#	This code takes in one argument: the path for the dataset.    #
+#	This code either takes in 3 or 4 arguments.		      #
+#	The first argument is the path for the dataset.		      #
+#	The second argument is the directory to save the results.     #
+#                                                                     #
+#	There are two options for inputing the paths for the models.  #
+#                                                                     #
+#	The first option is to give the directory that has the json   #
+#	and h5 files for the model as the third argument.	      #
+#                                                                     #
+#	The second option is to give the path of the json file and    #
+#	the h5 file as the third and fourth arguments, respectively.  #
 #                                                                     #
 #	After loading the model, it will predict the values of the    #
 #	last 10% of the dataset  a keras model using the last 10% of  #
