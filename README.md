@@ -56,7 +56,9 @@ The trained model including its weights will be stored in the models directory a
 The results for evaluating the features will appear as bar graph png in the results directory after eval_feats_bar_graph.py is run.
 
 ### Training the Model
-1. In order to train the model, it requires 2 arguments: the dataset and the directory for saving the model. The third argument is optional and is the architecture as a .txt file. 
+1. In order to train the model, it requires 2 arguments: the dataset and the directory for saving the model. 
+
+There are two optional arguments: the architecture as a .txt file and the name you would like your models to have. 
 
 For example, 
 ```
