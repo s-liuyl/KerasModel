@@ -31,11 +31,22 @@ from sklearn.pipeline import Pipeline
 import sys
 
 inputfile = sys.argv[1]
+resFolder = sys.argv[2]
+if resFolder.rfind('/') != len(resFolder)-1:
+        resFolder = resFolder+'/'
 
-if(inputfile.rfind('/')== -1):
-        filename = (inputfile[0:inputfile.rfind('.')])
+if len(sys.argv) == 4 and '.txt' not in sys.argv[3]:
+	filename = resFolder+sys.argv[3]
+elif len(sys.argv) == 5:
+	if '.txt' not in sys.argv[3]:
+		filename = resFolder+sys.argv[3]
+	else:
+		filename = resFolder+sys.argv[4]
 else:
-        filename = (inputfile[1+inputfile.rfind('/'):inputfile.rfind('.')])
+	if(inputfile.rfind('/')== -1):
+        	filename =resFolder+"model90percent_"+ (inputfile[0:inputfile.rfind('.')])
+	else:
+        	filename =resFolder+"model90percent_"+ (inputfile[1+inputfile.rfind('/'):inputfile.rfind('.')])
 
 #load dataset
 f = open(inputfile, 'r')
@@ -91,11 +102,18 @@ def baseline_model():
 # fix random seed for reproducibility
 seed = 7
 np.random.seed(seed)
-if len(sys.argv) == 3:
-
+if len(sys.argv) ==3:
+	train_model = baseline_model()
+elif len(sys.argv) ==5 and '.txt' not in sys.argv[4] and '.txt' not in sys.argv[3]:
+        train_model = baseline_model()
+elif (len(sys.argv)== 4 and '.txt' not in sys.argv[3]):
 	train_model = baseline_model()
 else:
-	reader = open(sys.argv[3], 'r') 
+	if '.txt' in sys.argv[3]:
+		i = 3
+	else:
+		i = 4
+	reader = open(sys.argv[i], 'r') 
 	architecture = reader.readline()
 	reader.close()
 	arch = architecture.split(' ')
@@ -128,16 +146,13 @@ train_model.fit(X, Y, epochs=50, batch_size=1000,verbose=1)
 scores = train_model.evaluate(X, Y, verbose=0)
 print("\n\nThe mse is ",scores)
 
-resFolder = sys.argv[2]
-if resFolder.rfind('/') != len(resFolder)-1:
-	resFolder = resFolder+'/'
 ### save the model 
 # serialize model to JSON
 model_json = train_model.to_json()
-with open(resFolder+"model90percent_"+filename+".json", "w") as json_file:
+with open(filename+".json", "w") as json_file:
     json_file.write(model_json)
 # serialize weights to HDF5
-train_model.save_weights(resFolder+"model90percent_"+filename+".h5")
+train_model.save_weights(filename+".h5")
 print("Saved model to disk")
 
 
