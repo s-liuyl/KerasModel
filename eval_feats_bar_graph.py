@@ -2,7 +2,8 @@
 #                                                                     #
 #       eval_feats_bar_graph.py                                       #
 #                                                                     #
-#       This code takes in one argument: the path for the dataset.    #
+#       This code takes 2 arguments: the path for the dataset and     #
+#	the directory to store the results.			      #
 #                                                                     #
 #      	A bar graph will be created for the average correlation and   #
 #	average loss for each feature.                                #
