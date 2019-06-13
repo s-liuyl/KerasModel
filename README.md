@@ -59,15 +59,25 @@ The results for evaluating the features will appear as bar graph png in the resu
 
 For example, 
 ```
-  python train_QA_90per.py data/QA_score_CASP8_9_10_11_features_singlemodel_20190530.txt
+  python train_QA_90per.py data/QA_score_CASP8_9_10_11_features_singlemodel_20190530.txt models/ arch.txt
+
 ```
 ### Predicting with a Model
-1. In order to predict using a model, it requires 4 arguments: the dataset, the directory to save the results, the model's json file and the model's h5 file.
+There are two ways to run the prediction code:
+1. The first way requires 4 arguments: the dataset, the directory to save the results, the model's json file and the model's h5 file.
 
 For example, 
 ```
   python train_QA_90per.py data/QA_score_CASP8_9_10_11_features_singlemodel_20190530.txt
 ```
+2. The second way requires 3 arguments: the dataset, the directory to save the results, and the directory with the model's h5 and json files. The directory, however, can only have one json and one h5 file.
+
+For example, 
+```
+  python train_QA_90per.py data/QA_score_CASP8_9_10_11_features_singlemodel_20190530.txt
+```
+
+
 ### Evaluating the Features 
 1.  In order to evaluate the features, it requires 2 arguments: the dataset and the directory to save the results.
 
