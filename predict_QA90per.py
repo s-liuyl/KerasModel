@@ -126,12 +126,9 @@ scores = loaded_model.evaluate(X, Y, verbose=0)
 print("The mse is ",scores)
 
 
-
 # predict the data 
 pred = loaded_model.predict(X)
 print(pred)
-
-
 #determining loss and correlation coefficient
 loss = []
 IDs = []
@@ -177,5 +174,5 @@ if resFolder.rfind('/') != len(resFolder)-1:
 writer = open(resFolder+filename +'.txt', 'w')
 for i in range(len(IDs)):
 	writer.write(IDs[i]+" - loss: %.2f, correlation: %f\n" %(loss[i], correlation_scipy[i]))
-writer.write("average loss: %f, average correlation: %f" %(avgL, avgC))
+writer.write("average loss: %f, average correlation: %f\n" %(avgL, avgC))
 writer.close()
