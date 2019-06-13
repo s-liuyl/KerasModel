@@ -2,11 +2,12 @@
 #                                                                     #
 #	train_QA.py                                                   #
 #                                                                     #
-#	This code requires 2 arguments: the path for the dataset and  #
-#	the directory to save the model.                              #
+#	This code requires 2 arguments: the path for the dataset      #
+#	and the directory to save the model.                          #
 #                                                                     #
-#	It can also take in an optional third argument: a .txt file   #
-#	designating the architecture of the network.		      #
+#	It can also take in two optional arguments: a .txt file       #
+#	designating the architecture of the network and the name      #
+#	you want to call your model files. 			      #
 #                                                                     #
 #	It will train a keras model using the first 90% of each       #
 #	ID in the dataset.                                            #
