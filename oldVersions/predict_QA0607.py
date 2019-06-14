@@ -139,4 +139,3 @@ c = np.asarray(correlation)
 avgC = np.mean(c)
 avgC2 = np.mean(np.asarray(correlation_scipy))
 print("average loss: %f, average correlation: %f, average correlation_scipy: %f" %(avgL,avgC, avgC2))
-

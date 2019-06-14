@@ -28,7 +28,7 @@ from keras.models import model_from_json
 from scipy.stats import pearsonr
 import sys
 inputfile = sys.argv[1]
-
+predicted = sys.argv[3]
 
 #load dataset
 f = open(inputfile, 'r')
