@@ -140,12 +140,6 @@ avgL = np.sum(npL,axis = 0)/len(IDs)
 avgC = np.sum(npC,axis = 0)/len(IDs)
 
 
-for i in range(len(IDs)):
-	for j in range(features):
-		print(IDs[i]+", feature "+ str(j+1)+"  - loss: %.2f, correlation: %f" %(loss[i][j], correlation_scipy[i][j]))
-
-for i in range(len(avgL)):
-	print("feature "+ str(i+1) + " - average loss: %f, average correlation: %f" %(avgL[i],avgC[i]))
 
 if(inputfile.rfind('/')==-1):
 	filename = inputfile[0:inputfile.rfind('.')]
@@ -157,7 +151,6 @@ labels = labels[1:features+1]
 for i in range(len(labels)):
 	s = labels[i]
 	labels[i] = s[(1+s.index(":")):]
-print(labels)
 i = np.arange(len(labels))
 resFolder = sys.argv[2]
 if resFolder.rfind('/') != len(resFolder)-1:
