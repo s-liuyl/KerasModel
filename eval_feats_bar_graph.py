@@ -150,7 +150,10 @@ else:
 labels = labels[1:features+1]
 for i in range(len(labels)):
 	s = labels[i]
-	labels[i] = s[(1+s.index(":")):]
+	s = s[(1+s.index(":")):]
+	if "feature_" in s:
+		s = s[s.rfind('feature_')+8:]
+	labels[i] = s
 i = np.arange(len(labels))
 resFolder = sys.argv[2]
 if resFolder.rfind('/') != len(resFolder)-1:
@@ -167,6 +170,7 @@ plt.ylabel('Average Correlation', fontsize = 5)
 plt.xticks(i, labels, fontsize = 5, rotation = 30)
 plt.title('Average Correlation for each feature')
 plt.savefig(resFolder + 'avgC_'+filename+'.png', format = 'png')
-
+print(avgC)
+print(avgL)
 
 
