@@ -176,6 +176,6 @@ for ind in range(len(data)):
 		writer.write(l)		
 		LGAcount +=1
 	else:															
-		l = line[:line.rfind('#')]+ str(features+1) + ':'+str(pred[ind-LGAcount]) + ' ' + line[line.rfind('#'):] 
+		l = line[:line.rfind('#')]+ str(features+1) + ':'+str(pred[ind-LGAcount][0]) + ' ' + line[line.rfind('#'):] 
 		writer.write(l)					
 writer.close()

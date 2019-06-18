@@ -28,7 +28,6 @@ from keras.models import model_from_json
 from scipy.stats import pearsonr
 import sys
 inputfile = sys.argv[1]
-predicted = sys.argv[3]
 
 #load dataset
 f = open(inputfile, 'r')
@@ -170,7 +169,5 @@ plt.ylabel('Average Correlation', fontsize = 5)
 plt.xticks(i, labels, fontsize = 5, rotation = 30)
 plt.title('Average Correlation for each feature')
 plt.savefig(resFolder + 'avgC_'+filename+'.png', format = 'png')
-print(avgC)
-print(avgL)
 
 
