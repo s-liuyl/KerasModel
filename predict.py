@@ -64,8 +64,6 @@ for i in range (1,len(dataset)):
 
 X = []
 Y = []
-print(data[1])
-print(dataset[0][0])
 for i in range(len(dataset)):
         x = []
         for j in range(0,1+features):
@@ -168,7 +166,6 @@ writer.write("average loss: %f, average correlation: %f\n" %(avgL, avgC))
 writer.close()
 writer = open(resFolder + filename + "_predictedFeats.txt", 'w')
 LGAcount = 0
-print(len(X))
 for ind in range(len(data)):
 	line = data[ind]
 	if "LGA" in line:

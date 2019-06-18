@@ -33,7 +33,6 @@ for ID in dict:
         for index in range(len(dict[ID])):
                 i = dict[ID][index]
 		if index >= cutoff:
-			print(data[i][data[i].rfind('#')+1:])
 			write10.write(data[i])
 		else:
 			write90.write(data[i])
