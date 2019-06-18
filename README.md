@@ -78,7 +78,7 @@ There are two ways to run the prediction code:
 
 For example, 
 ```
-  python predict_QA90per.py data/QA_score_CASP8_9_10_11_features_singlemodel_20190530.txt results/models/model90percent_QA_score_CASP8_9_10_11_features_singlemodel_20190530.json models/model90percent_QA_score_CASP8_9_10_11_features_singlemodel_20190530.h5
+  python predict_QA90per.py data/QA_score_CASP8_9_10_11_features_singlemodel_20190530.txt results/ models/model90percent_QA_score_CASP8_9_10_11_features_singlemodel_20190530.json models/model90percent_QA_score_CASP8_9_10_11_features_singlemodel_20190530.h5
 ```
 2. The second way requires 3 arguments: the dataset, the directory to save the results, and the directory with the model's h5 and json files. The directory, however, can only have one json and one h5 file.
 
