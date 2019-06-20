@@ -40,9 +40,8 @@ for line in data:
 		labels = line.split(' ')
 		continue		
 	dataset.append(line.split(' '))
-
-
 features = len(dataset[0])-2
+
 X = []
 Y = []
 for i in range(len(dataset)):
@@ -76,7 +75,6 @@ for i in range (1,len(dataset)):
 X = np.asarray(X)
 #print(X[0,:])
 #print(X.shape)
-
 Y = np.asarray(Y)
 #print(Y[0])
 #print(Y.shape)
@@ -87,7 +85,7 @@ Y = np.asarray(Y)
 
 
 
-#determining loss and correlation coefficient
+#determining loss and correlation icoefficient
 loss = []
 IDs = []
 predicted = []
@@ -118,7 +116,7 @@ for ID in dict:
 	for i in range(features):
 		l.append(abs(maxY-Y[maxFeatsind[i]]))
 	
-
+	
 	loss.append(l)
 	predicted.append(np.asarray(p))
 	actualYs.append(np.asarray(a))
@@ -128,16 +126,17 @@ for i in range(len(IDs)):#for each ID
 	c = []
 	for j in range(features):
 		corr, p_value = pearsonr(predicted[i][:,j],actualYs[i])
+		if math.isnan(corr):
+			corr =0
 		c.append(corr)
 	correlation_scipy.append(c)
-
+		
 
 npL = np.asarray(loss)
 npC = np.asarray(correlation_scipy)	
 
 avgL = np.sum(npL,axis = 0)/len(IDs)
 avgC = np.sum(npC,axis = 0)/len(IDs)
-
 
 
 if(inputfile.rfind('/')==-1):
@@ -153,6 +152,7 @@ for i in range(len(labels)):
 	if "feature_" in s:
 		s = s[s.rfind('feature_')+8:]
 	labels[i] = s
+
 i = np.arange(len(labels))
 resFolder = sys.argv[2]
 if resFolder.rfind('/') != len(resFolder)-1:
@@ -165,7 +165,7 @@ plt.xticks(i, labels, fontsize = 5, rotation = 30)
 plt.title('Average Loss for each feature')
 plt.savefig(resFolder + 'avgL_'+filename+'.png', format = 'png')
 plt.cla()
-plt.bar(i,avgC)
+plt.bar(i,avgC, color = (1, 0.7, 0, 1))
 plt.xlabel('Features', fontsize = 5)
 plt.ylabel('Average Correlation', fontsize = 5)
 plt.xticks(i, labels, fontsize = 5, rotation = 30)
