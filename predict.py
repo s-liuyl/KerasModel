@@ -164,6 +164,7 @@ for i in range(len(IDs)):
 	writer.write(IDs[i]+" - loss: %.2f, correlation: %f\n" %(loss[i], correlation_scipy[i]))
 writer.write("average loss: %f, average correlation: %f\n" %(avgL, avgC))
 writer.close()
+print("average loss: %f, average correlation: %f\n" %(avgL, avgC))
 writer = open(resFolder + filename + "_predictedFeats.txt", 'w')
 LGAcount = 0
 for ind in range(len(data)):

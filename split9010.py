@@ -6,35 +6,37 @@ filename = inputFile[:inputFile.rfind('.')]
 f = open(inputFile, 'r')
 data = f.readlines()
 f.close()
-dataset = []
-for line in data:
-        if '#LGA' in line:
-		continue
-        dataset.append(line.split(' '))
  
-write10 = open(filename + '_last10.txt', 'w')
-write90 = open(filename + '_first90.txt', 'w')
-write10.write(data[0])
-write90.write(data[0])
 #determine indices of different sequences
-features = len(dataset[0])-2
-firstS = dataset[0][features+1]
-firstID = firstS[1:firstS.index(":")]
-dict = {firstID:[0]}
-for i in range (0,len(dataset)):
-        s = dataset[i][features+1]
-        id = s[1:(s.index(":"))]
+line = data[1]
+firstID = line[line.rfind(' ')+2:line.rfind(':')]
+dict = {firstID:[1]}
+for i in range (2,len(data)):
+        line = data[i]
+	if 'LGA' in line:
+		continue
+        id = line[line.rfind(' ')+2:line.rfind(':')]
         if id in dict:
                 dict[id] = dict[id] + [i]
         else:
-                dict[id] = [i]
-for ID in dict:
-        cutoff = int(0.9*len(dict[ID]))
+		dict[id] = [i]
+ 
+k = dict.keys()
+cutoff = int(0.9*len(k))
+write90 = open(filename + '_first90.txt', 'w')
+write90.write(data[0])
+for target in range(cutoff):
+	ID = k[target]
         for index in range(len(dict[ID])):
                 i = dict[ID][index]
-		if index >= cutoff:
-			write10.write(data[i])
-		else:
-			write90.write(data[i])
-
-
+		write90.write(data[i])
+ 
+write90.close()
+write10 = open(filename + '_last10.txt', 'w')
+write10.write(data[0])
+for target in range(cutoff, len(k)):
+        ID = k[target]
+        for index in range(len(dict[ID])):
+                i = dict[ID][index]
+                write10.write(data[i])
+write10.close()
