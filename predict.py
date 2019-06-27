@@ -54,9 +54,11 @@ features = len(dataset[0])-2
 firstS = dataset[0][features+1]
 firstID = firstS[1:firstS.index(":")]
 dict = {firstID:[0]}
+modelNums = []
 for i in range (1,len(dataset)):
         s = dataset[i][features+1]
         id = s[1:(s.index(":"))]
+	
         if id in dict:
                 dict[id] = dict[id] + [i]
         else:
@@ -149,7 +151,12 @@ for ID in dict:
 
 correlation_scipy = []
 for i in range(len(IDs)):
+
 	corr, p_value = pearsonr(predictedYs[i],actualYs[i])
+	if np.isnan(corr):
+		print(IDs[i])
+		print(predictedYs[i])
+		print(actualYs[i])
 	correlation_scipy.append(corr)
 l = np.asarray(loss)
 avgL = np.mean(l)
@@ -177,3 +184,5 @@ for ind in range(len(data)):
 		l = line[:line.rfind('#')]+ str(features+1) + ':'+str(pred[ind-LGAcount][0]) + ' ' + line[line.rfind('#'):] 
 		writer.write(l)					
 writer.close()
+w = open(resFolder + 'keras_prediction_sort.txt', 'w')
+

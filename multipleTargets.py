@@ -13,7 +13,7 @@ if targetsFolder.rfind('/') != len(targetsFolder)-1:
 targets = glob.glob(targetsFolder+"*")
 targetFolder = targets[0]+'/ALL_scores/'
 if len(sys.argv) ==4:
-	targetFileName = sys.argv[3]+'.txt'
+	targetFileName = sys.argv[3]
 else:
 	targetFileName = 'dataset.txt'
 if targetFolder.rfind('/') != len(targetFolder)-1:
@@ -29,8 +29,10 @@ for i in range(len(featNames)):
 		featNames[i] = 'LGA_score'
 	else:
 		s = featNames[i]
+		if '\n' in s:
+			s = s[:s.rfind('\n')]
 		featNames[i] = s[s.rfind(':')+1:]
-targets = glob.glob(targetsFolder+"*")
+
 for t in targets:
 	targetFolder = t+'/ALL_scores/'
         tar = t[t.rfind('/')+1:]
@@ -48,16 +50,18 @@ for t in targets:
                 data = r.readlines()
                 r.close()
                 scores = []
-                for line in data:
-                        if 'END' in line:
+		for line in data:
+			if 'END' in line:
                                 break
                         if '\t' in line:
                                 x = line.split('\t')
                         else:
                                 x = line.split(' ')
                         x[1] = (x[1])[:(x[1]).rfind('\n')]
-                        scores.append(x)
-                for score in scores:
+                        if '/' in x[0]:
+				x[0] = (x[0])[x[0].rfind('/')+1:]
+			scores.append(x)
+		for score in scores:
                         model = score[0]
                         if '/'in model:
                                 model = model[model.rfind('/')+1:]
@@ -73,15 +77,16 @@ for t in targets:
         writer = open(targetFileName, 'a+')
 	thisLGA = float('inf')
         origToThisInd = [50]*len(featNames)
+	
 	for i in range(len(featNames)):
                 for j in range(len(thisFeatNames)):
 			if "LGA" in thisFeatNames[j]:
-				thisLGA = i
+				thisLGA = j
+
                         if thisFeatNames[j] == featNames[i]:
                                 origToThisInd[i] = j
                                 break
-	
-        for k in dict.keys():
+	for k in dict.keys():
                 thisKeyFs = dict[k]
 		if len(thisKeyFs) >= len(featNames):
 			writer.write(thisKeyFs[thisLGA]+' ')
