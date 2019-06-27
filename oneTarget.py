@@ -7,6 +7,7 @@ targetFolder = sys.argv[2]
 f = open(trainingSet, 'r')
 d = f.readlines()
 f.close()
+
 featNames = d[0].split(' ')
 files = glob.glob(targetFolder + '*')
 if len(sys.argv) ==4:
@@ -28,12 +29,10 @@ for i in range(len(featNames)):
 		featNames[i] = s[s.rfind(':')+1:]
 dict = {}
 thisFeatNames = []
-
-
 for i in files:
 	feature = i[i.rfind('/')+1:i.rfind('.')]
 	if feature.rfind('.') != -1:
-                continue
+		continue
 	thisFeatNames.append(feature)
 	r = open(i, 'r')
 	data = r.readlines()
@@ -59,7 +58,6 @@ for i in files:
 			sc = score[1]
 		except:
 			continue
-	
 		if model in dict:
 			dict[model] = dict[model] + [sc]
 		else:
@@ -67,42 +65,38 @@ for i in files:
 origToThisInd = [50]*len(featNames)
 writer = open(targetFileName, 'a+')
 thisLGA = float('inf')
+existsLGA = False
 origToThisInd = [50]*len(featNames)
 for i in range(len(featNames)):
+	if "LGA" in featNames[i]:
+		thisLGA = i
 	for j in range(len(thisFeatNames)):
-		if "LGA" in thisFeatNames[j]:
-			thisLGA = j
-                if thisFeatNames[j] == featNames[i]:
+                if "LGA" in thisFeatNames[j]:
+			existsLGA = True
+		if thisFeatNames[j] == featNames[i]:
                         origToThisInd[i] = j
 			break
-	
-if thisLGA!= float('inf'):
-	w = open(targetFileName, 'w')
-	w.write(d[0])
-	w.close() 
-else:
-	w = open(targetFileName, 'w')
-        w.write((d[0])[(d[0]).rfind('1:'):])
-        w.close()
-first = True
-print(origToThisInd)
-print(thisLGA)
-print(featNames)
-print(thisFeatNames)
+w = open(targetFileName, 'w')
+w.write(d[0])
+w.close()
+
 for k in dict.keys():
 	fs = dict[k]
-#	if first:
-		#first = False
-		#print(fs)
 	if len(fs) ==1:
 		continue	
-	if thisLGA != float('inf'):
+	if existsLGA:
 		writer.write(fs[thisLGA]+' ')
+	else:
+		writer.write("0 ")
 	for i in range(len(featNames)):
-		if origToThisInd[i] == 50:
-			writer.write(str(i)+":0")
-		elif thisLGA == i:
-              		continue
+		if thisLGA == i:
+			continue
+		elif origToThisInd[i] == 50:
+			
+			if (i > thisLGA):
+				writer.write(str(i)+":0 ")
+			else:
+				writer.write(str(i+1) + ":0 ")
         	elif i > thisLGA:
                 	writer.write(str(i)+":"+fs[origToThisInd[i]]+' ')
 		else:
@@ -110,6 +104,3 @@ for k in dict.keys():
 	writer.write('#'+tar+':'+k)
 	writer.write('\n')
 writer.close()
-
-
-

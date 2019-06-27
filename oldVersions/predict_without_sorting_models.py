@@ -24,7 +24,6 @@ import numpy as np
 import math
 import pandas
 import glob
-import collections
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasRegressor
@@ -45,28 +44,25 @@ f = open(inputfile, 'r')
 data = f.readlines()
 f.close()
 dataset = []
-modelNames = []
-existsLGA = False
 for line in data:
 	if '#LGA' in line:
 		continue
 	dataset.append(line.split(' '))
-	modelNames.append(line[line.rfind(':')+1:line.rfind('\n')])
-features = len(dataset[1])-2
+
+features = len(dataset[0])-2
 #determine indices of different sequences
 firstS = dataset[0][features+1]
-
 firstID = firstS[1:firstS.index(":")]
 dict = {firstID:[0]}
+modelNums = []
 for i in range (1,len(dataset)):
-	s = dataset[i][features+1]
+        s = dataset[i][features+1]
         id = s[1:(s.index(":"))]
 	
         if id in dict:
                 dict[id] = dict[id] + [i]
         else:
                 dict[id] = [i]
-	
 
 X = []
 Y = []
@@ -129,7 +125,6 @@ loss = []
 IDs = []
 predictedYs = []
 actualYs = []
-vals = {}
 for ID in dict:
 	IDs.append(ID)
 	p = []
@@ -139,10 +134,6 @@ for ID in dict:
 	maxAind = 0
 	maxA = float("-inf")
 	for i in dict[ID]:
-		if pred[i][0] in vals:
-			vals[pred[i][0]]= vals[pred[i][0]] + [modelNames[i]]
-		else:
-			vals[pred[i][0]]= [modelNames[i]]
 		p.append(pred[i][0])
 		a.append(Y[i])
 		if pred[i][0]>maxP:
@@ -155,30 +146,26 @@ for ID in dict:
 	predictedYs.append(np.asarray(p))
 	actualYs.append(np.asarray(a))
 
-resFolder = sys.argv[2]
-if resFolder.rfind('/') != len(resFolder)-1:
-        resFolder = resFolder+'/'
-w = open(resFolder + filename +'_keras_prediction_sort.txt', 'w')
-sortedMods = collections.OrderedDict(sorted(vals.items()))
-k = list(sortedMods.keys())
-for i in range(len(k)):
-	key = k[len(sortedMods)-1-i]
-	v = sortedMods[key]
-	for m in v:
-		w.write(m+'\t'+str(key)+'\n')
-w.close()
+
+
+
 correlation_scipy = []
 for i in range(len(IDs)):
 
 	corr, p_value = pearsonr(predictedYs[i],actualYs[i])
 	if np.isnan(corr):
-		corr = 0.0
+		print(IDs[i])
+		print(predictedYs[i])
+		print(actualYs[i])
 	correlation_scipy.append(corr)
 l = np.asarray(loss)
 avgL = np.mean(l)
 avgC = np.mean(np.asarray(correlation_scipy))
 
 
+resFolder = sys.argv[2]
+if resFolder.rfind('/') != len(resFolder)-1:
+        resFolder = resFolder+'/'
 writer = open(resFolder+filename +'.txt', 'w')
 for i in range(len(IDs)):
 	writer.write(IDs[i]+" - loss: %.2f, correlation: %f\n" %(loss[i], correlation_scipy[i]))
@@ -197,4 +184,5 @@ for ind in range(len(data)):
 		l = line[:line.rfind('#')]+ str(features+1) + ':'+str(pred[ind-LGAcount][0]) + ' ' + line[line.rfind('#'):] 
 		writer.write(l)					
 writer.close()
+w = open(resFolder + 'keras_prediction_sort.txt', 'w')
 
