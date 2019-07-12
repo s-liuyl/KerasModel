@@ -1,0 +1,15 @@
+import sys
+dataset = sys.argv[1] 
+clusteredModels = sys.argv[2]
+resFolder = sys.argv[3]
+if clusteredModels.rfind('/') != len(clusteredModels)-1:
+	clusteredModels = clusteredModels +'/'
+if resFolder.rfind('/') != len(resFolder) -1:
+	resFolder = resFolder + '/'
+import glob
+models = glob.glob(clusteredModels)
+r = open(dataset, 'r')
+data = r.readlines()
+r.close()
+w = open(dataset[:,dataset.rfind('.')], 'w')
+

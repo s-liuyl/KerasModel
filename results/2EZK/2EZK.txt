@@ -1,0 +1,2 @@
+2EZK - loss: 0.00, correlation: 0.000000
+average loss: 0.000000, average correlation: 0.000000
