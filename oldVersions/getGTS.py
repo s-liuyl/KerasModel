@@ -8,20 +8,20 @@ clusteredFile = sys.argv[5]
 log = sys.argv[6]
 output = sys.argv[7]
 if len(sys.argv)==9:
-	length = sys.argv[8]
+	length = int(sys.argv[8])
 else:
 	length = 5
 if '.'in file:
 	file = file[:file.rfind('.')]
 file +=' '
 pre = ' '+ pre
-o = open(kerasFile, 'r')
-d = o.readlines()
-o.close()
+k = open(kerasFile, 'r')
+d = k.readlines()
+k.close()
 if pre.rfind('/') != len(pre) -1:
 	pre+='/'
 w = open(output, 'a+')
-w.write("Top "+length+" ClusterQA")
+w.write("Top "+str(length)+" ClusterQA")
 op = open(log, 'r')
 for i in range(length):
 	line = d[i]
@@ -29,11 +29,11 @@ for i in range(length):
 	os.system(file  +actualPDB + pre+ line[:line.rfind("\\")])
 	all = op.read()
 	w.write(all[all.rfind('GDT-TS'):all.rfind('GDT-TS') + 50]+'\n')
-o = open(clusteredFile, 'r')
-d = o.readlines()
-o.close()
+c = open(clusteredFile, 'r')
+d = c.readlines()
+c.close()
 count = 0
-w.write('\nTop from top '+length+' clusters')
+w.write('\nTop from top '+str(length)+' clusters')
 for i   in range(len(d)):
 	if 'Item' in d[i]:
 		count +=1
@@ -49,11 +49,11 @@ o = open(log , 'r')
 d = o.readlines()
 o.close()
 count = 0
-print("Top "+length+" ClusterQA")
+print("Top "+str(length)+" ClusterQA")
 for line in d:
 	if 'GDT-TS' in line:
 		count+= 1
 		print(line)
 	if count ==length:
 		count+=1
-		print("Top from top "+length+" clusters")
+		print("Top from top "+str(length)+" clusters")

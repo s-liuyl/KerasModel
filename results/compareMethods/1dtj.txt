@@ -1,0 +1,80 @@
+Results::
+Top from top 5 clusters
+model_11264
+GDT-TS = 0.90
+TM-score = 0.9189
+model_50112
+GDT-TS = 0.44
+TM-score = 0.4865
+model_50846
+GDT-TS = 0.44
+TM-score = 0.4764
+model_33696
+GDT-TS = 0.45
+TM-score = 0.4730
+model_11637
+GDT-TS = 0.44
+TM-score = 0.4696
+
+Average GDT-TS = 0.534
+Average TM-score = 0.5648799999999999
+
+Top 5 ClusterQA
+model_52486
+GDT-TS = 0.92
+TM-score = 0.9426
+model_30552
+GDT-TS = 0.91
+TM-score = 0.9291
+model_41919
+GDT-TS = 0.91
+TM-score = 0.9291
+model_49354
+GDT-TS = 0.91
+TM-score = 0.9189
+model_12395
+GDT-TS = 0.89
+TM-score = 0.8953
+
+Average GDT-TS = 0.908
+Average TM-score = 0.923
+
+Top 5 DeepRank
+model_14110
+GDT-TS = 0.93
+TM-score = 0.9561
+model_51308
+GDT-TS = 0.91
+TM-score = 0.9223
+model_21695
+GDT-TS = 0.92
+TM-score = 0.9223
+model_41437
+GDT-TS = 0.90
+TM-score = 0.9088
+model_21025
+GDT-TS = 0.90
+TM-score = 0.9054
+
+Average GDT-TS = 0.9120000000000001
+Average TM-score = 0.9229800000000001
+
+Top 5 Qprob
+model_43547
+GDT-TS = 0.95
+TM-score = 0.9527
+model_39531
+GDT-TS = 0.93
+TM-score = 0.9493
+model_26787
+GDT-TS = 0.92
+TM-score = 0.9392
+model_29910
+GDT-TS = 0.91
+TM-score = 0.9257
+model_1550
+GDT-TS = 0.89
+TM-score = 0.9122
+
+Average GDT-TS = 0.9199999999999999
+Average TM-score = 0.93582

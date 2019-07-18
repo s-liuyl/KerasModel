@@ -10,6 +10,8 @@ writeFile = sys.argv[2]
 name = sys.argv[3]
 resFolder = sys.argv[4]
 clusteredModels = sys.argv[5]
+gtsScores = sys.argv[6]
+tmScores = sys.argv[7]
 if resFolder.rfind('/') !=len(resFolder)-1:
         resFolder = resFolder+'/'
 if clusteredModels.rfind('/') != len(resFolder)-1:
@@ -24,7 +26,6 @@ GTSdict = {}
 TMdict = {}
 m = glob.glob(clusteredModels)
 models = []
-count = 0
 for i in m:
 	
 	models.append(int(i[1+i.rfind('_'):]))
@@ -39,9 +40,10 @@ def inArrBinarySearch(arr,l,r,x):
 		return inArrBinarySearch(arr, l, mid-1,x) 
 	return inArrBinarySearch(arr, mid+1, r, x)
 numModels = len(models)
+count = 0
 for l in data:
 	try:
-		num = int(l[l.rfind('_')+1:l.find('\t')])
+		num = int(l[l.find('_')+1:l.find('\t')])
 		if inArrBinarySearch(models, 0, numModels-1, num):
 			count+=1
 			line = l.split('\t')
@@ -80,13 +82,23 @@ TMod = collections.OrderedDict(sorted(TMdict.items()))
 for k, v in TMod.iteritems():
 	TMy.append(v)
         TMx.append(float(k))
+colors = ['m',  'g','c', 'b', 'y', 'k', ]
+gtsScores = gtsScores.split(',')
 plt.cla()
 plt.figure()
+plt.xlabel('GDT-TS score')
+plt.ylabel('frequency')
+for i in range(len(gtsScores)):
+	plt.axvline(x=int(gtsScores[i]),color = colors[i])
 plt.plot(GTSx,GTSy,'r')
 plt.savefig(resFolder+name+'GTS.png', format = 'png')
-
+tmScores = tmScores.split(',')
 plt.cla()
 plt.figure()
+for i in range(len(tmScores)):
+        plt.axvline(x=int(tmScores[i]),color = colors[i])
+plt.xlabel('GDT-TM score')
+plt.ylabel('frequency')
 plt.plot(TMx,TMy,'r')
 plt.savefig(resFolder+name+'TM.png', format = 'png')
 

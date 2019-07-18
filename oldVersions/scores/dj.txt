@@ -1,0 +1,31 @@
+Top 5 ClusterQAmodel_52486	0.80322033
+TM-score    = 0.8877
+GDT-TS-score= 0.9046 %(d<1)=0.7237 %(d<2)=0.9474 %
+model_30552	0.8008077
+TM-score    = 0.8658
+GDT-TS-score= 0.8717 %(d<1)=0.6184 %(d<2)=0.9211 %
+model_41919	0.8001169
+TM-score    = 0.8894
+GDT-TS-score= 0.8947 %(d<1)=0.6842 %(d<2)=0.9474 %
+model_49354	0.79481554
+TM-score    = 0.8895
+GDT-TS-score= 0.9046 %(d<1)=0.7237 %(d<2)=0.9474 %
+model_12395	0.7944746
+TM-score    = 0.8992
+GDT-TS-score= 0.9178 %(d<1)=0.7763 %(d<2)=0.9474 %
+
+Top from top 5 clustersmodel_11264 
+TM-score    = 0.8788
+GDT-TS-score= 0.8947 %(d<1)=0.6842 %(d<2)=0.9474 %
+model_50112 
+TM-score    = 0.4401
+GDT-TS-score= 0.4605 %(d<1)=0.3289 %(d<2)=0.3947 %
+model_50846 
+TM-score    = 0.4312
+GDT-TS-score= 0.4638 %(d<1)=0.3026 %(d<2)=0.4211 %
+model_33696 
+TM-score    = 0.4351
+GDT-TS-score= 0.4737 %(d<1)=0.2500 %(d<2)=0.4211 %
+model_11637 
+TM-score    = 0.4296
+GDT-TS-score= 0.4572 %(d<1)=0.2632 %(d<2)=0.3553 %

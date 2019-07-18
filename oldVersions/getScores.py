@@ -1,0 +1,67 @@
+import sys
+import os
+#TMscore file
+file = sys.argv[1]
+pre = sys.argv[2]
+actualPDB = sys.argv[3]
+kerasFile = sys.argv[4]
+clusteredFile = sys.argv[5]
+log = sys.argv[6]
+output = sys.argv[7]
+if len(sys.argv)==9:
+	length = int(sys.argv[8])
+else:
+	length = 5
+if '.'in file:
+	file = file[:file.rfind('.')]
+file +=' '
+pre = ' '+ pre
+k = open(kerasFile, 'r')
+d = k.readlines()
+k.close()
+if pre.rfind('/') != len(pre) -1:
+	pre+='/'
+w = open(output, 'a+')
+w.write("Top "+str(length)+" ClusterQA")
+op = open(log, 'r')
+for i in range(length):
+	line = d[i]
+	w.write(line[:line.rfind("\\")]+'\n')
+	os.system(file  +actualPDB + pre+ line[:line.rfind("\\")])
+	all = op.read()
+	last = all[:all.rfind('TM-score') ]
+	w.write(last[last.rfind('TM-score'):last.rfind('TM-score') + 20]+'\n')
+	w.write(all[all.rfind('GDT-TS'):all.rfind('GDT-TS') + 50]+'\n')
+c = open(clusteredFile, 'r')
+d = c.readlines()
+c.close()
+count = 0
+
+w.write('\nTop from top '+str(length)+' clusters')
+for i   in range(len(d)):
+	if 'Item' in d[i]:
+		count +=1
+		line = d[i+1]
+		w.write(line[line.rfind('m'):line.rfind("\\")] +'\n')
+		os.system(file  +actualPDB + pre+ line[line.rfind('m'):line.rfind("\\")])
+		all = op.read()
+		last = all[:all.rfind('TM-score') ]
+		w.write(last[last.rfind('TM-score'):last.rfind('TM-score') + 20]+'\n')
+		w.write(all[all.rfind('GDT-TS'):all.rfind('GDT-TS') + 50]+'\n')
+	if count ==length:
+		op.close()
+		break
+o = open(log , 'r')
+d = o.readlines()
+o.close()
+count = 0
+print("Top "+str(length)+" ClusterQA")
+for line in d:
+	if 'TM-score' in line:
+		print(line)
+	if 'GDT-TS' in line:
+		count+= 1
+		print(line)
+	if count ==length:
+		count+=1
+		print("Top from top "+str(length)+" clusters")

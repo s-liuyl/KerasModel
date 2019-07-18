@@ -1,0 +1,442 @@
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the similarity of protein structures         *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: zhng@umich.edu                             *
+ *****************************************************************************
+
+Structure1: /home/casp  Length=   61
+Structure2: /home/casp  Length=   61 (by which all scores are normalized)
+Number of residues in common=   56
+RMSD of  the common residues=   11.905
+
+TM-score    = 0.1400  (d0= 2.64)
+MaxSub-score= 0.1269  (d0= 3.50)
+GDT-TS-score= 0.1885 %(d<1)=0.0820 %(d<2)=0.0984 %(d<4)=0.1967 %(d<8)=0.3770
+GDT-HA-score= 0.1107 %(d<0.5)=0.0656 %(d<1)=0.0820 %(d<2)=0.0984 %(d<4)=0.1967
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1     46.0458819788  -0.1763545894  -0.4380199208  -0.8814973669
+ 2    -39.7050353199  -0.0999100515   0.8988737646  -0.4266660720
+ 3    -40.2599257149   0.9792430957   0.0128259273  -0.2022831065
+
+Superposition in the TM-score: Length(d<5.0)= 13  RMSD=  2.80
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+-----DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV
+             ::::             ::::::: ::                          
+DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV-----
+123456789012345678901234567890123456789012345678901234567890123456
+
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the similarity of protein structures         *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: zhng@umich.edu                             *
+ *****************************************************************************
+
+Structure1: /home/casp  Length=   61
+Structure2: /home/casp  Length=   61 (by which all scores are normalized)
+Number of residues in common=   56
+RMSD of  the common residues=   11.432
+
+TM-score    = 0.1495  (d0= 2.64)
+MaxSub-score= 0.1314  (d0= 3.50)
+GDT-TS-score= 0.2172 %(d<1)=0.0820 %(d<2)=0.1311 %(d<4)=0.2131 %(d<8)=0.4426
+GDT-HA-score= 0.1230 %(d<0.5)=0.0656 %(d<1)=0.0820 %(d<2)=0.1311 %(d<4)=0.2131
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1     44.1594705887  -0.8964017368  -0.3779203293   0.2316034349
+ 2    -18.3175087517  -0.4212042626   0.8890068210  -0.1795935453
+ 3     44.5791923914  -0.1380249816  -0.2585403199  -0.9560889119
+
+Superposition in the TM-score: Length(d<5.0)= 12  RMSD=  2.59
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+-----DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV
+                     :::::           :      ::::::                
+DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV-----
+123456789012345678901234567890123456789012345678901234567890123456
+
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the similarity of protein structures         *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: zhng@umich.edu                             *
+ *****************************************************************************
+
+Structure1: /home/casp  Length=   61
+Structure2: /home/casp  Length=   61 (by which all scores are normalized)
+Number of residues in common=   56
+RMSD of  the common residues=   11.527
+
+TM-score    = 0.1524  (d0= 2.64)
+MaxSub-score= 0.1318  (d0= 3.50)
+GDT-TS-score= 0.2131 %(d<1)=0.0820 %(d<2)=0.1311 %(d<4)=0.1967 %(d<8)=0.4426
+GDT-HA-score= 0.1189 %(d<0.5)=0.0656 %(d<1)=0.0820 %(d<2)=0.1311 %(d<4)=0.1967
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1     32.2617692700  -0.8464553953  -0.2869136196   0.4485463619
+ 2     -4.1771889623  -0.4806396733   0.7742199571  -0.4117875210
+ 3     56.2221823122  -0.2291260969  -0.5641489457  -0.7932447282
+
+Superposition in the TM-score: Length(d<5.0)= 13  RMSD=  2.92
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+-----DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV
+                     :::::           :   :  ::::::                
+DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV-----
+123456789012345678901234567890123456789012345678901234567890123456
+
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the similarity of protein structures         *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: zhng@umich.edu                             *
+ *****************************************************************************
+
+Structure1: /home/casp  Length=   61
+Structure2: /home/casp  Length=   61 (by which all scores are normalized)
+Number of residues in common=   56
+RMSD of  the common residues=   11.573
+
+TM-score    = 0.1437  (d0= 2.64)
+MaxSub-score= 0.1264  (d0= 3.50)
+GDT-TS-score= 0.2090 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.2131 %(d<8)=0.4262
+GDT-HA-score= 0.1189 %(d<0.5)=0.0656 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.2131
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1    -16.2559637811  -0.4537675098   0.7217337125  -0.5226810647
+ 2     28.9935247517   0.2950069331  -0.4318039509  -0.8523592303
+ 3     70.3961958394  -0.8408721404  -0.5409674632  -0.0169778455
+
+Superposition in the TM-score: Length(d<5.0)= 11  RMSD=  2.67
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+-----DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV
+                              ::::::::     :::                    
+DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV-----
+123456789012345678901234567890123456789012345678901234567890123456
+
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the similarity of protein structures         *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: zhng@umich.edu                             *
+ *****************************************************************************
+
+Structure1: /home/casp  Length=   61
+Structure2: /home/casp  Length=   61 (by which all scores are normalized)
+Number of residues in common=   56
+RMSD of  the common residues=   11.640
+
+TM-score    = 0.1443  (d0= 2.64)
+MaxSub-score= 0.1281  (d0= 3.50)
+GDT-TS-score= 0.2008 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.1803 %(d<8)=0.4262
+GDT-HA-score= 0.1107 %(d<0.5)=0.0656 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.1803
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1     39.5714968336   0.3618875929  -0.7801774705  -0.5102553132
+ 2     63.7556706907  -0.9322125751  -0.3052880983  -0.1943679292
+ 3    -21.7013646619  -0.0041333949   0.5460057615  -0.8377712238
+
+Superposition in the TM-score: Length(d<5.0)= 10  RMSD=  2.02
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+-----DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV
+                    :::         :                ::::::           
+DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV-----
+123456789012345678901234567890123456789012345678901234567890123456
+
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the similarity of protein structures         *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: zhng@umich.edu                             *
+ *****************************************************************************
+
+Structure1: /home/casp  Length=   61
+Structure2: /home/casp  Length=   61 (by which all scores are normalized)
+Number of residues in common=   56
+RMSD of  the common residues=   11.597
+
+TM-score    = 0.1476  (d0= 2.64)
+MaxSub-score= 0.1259  (d0= 3.50)
+GDT-TS-score= 0.2008 %(d<1)=0.0820 %(d<2)=0.1311 %(d<4)=0.1803 %(d<8)=0.4098
+GDT-HA-score= 0.1148 %(d<0.5)=0.0656 %(d<1)=0.0820 %(d<2)=0.1311 %(d<4)=0.1803
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1     44.9146622602  -0.9870527633  -0.1562696527  -0.0361474502
+ 2    -30.0057573048  -0.1350389580   0.9312422071  -0.3384559521
+ 3     40.8088340965   0.0865524254  -0.3291925688  -0.9402876849
+
+Superposition in the TM-score: Length(d<5.0)= 10  RMSD=  2.57
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+-----DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV
+          :          :    :          :     ::::::                 
+DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV-----
+123456789012345678901234567890123456789012345678901234567890123456
+
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the similarity of protein structures         *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: zhng@umich.edu                             *
+ *****************************************************************************
+
+Structure1: /home/casp  Length=   61
+Structure2: /home/casp  Length=   61 (by which all scores are normalized)
+Number of residues in common=   56
+RMSD of  the common residues=   11.417
+
+TM-score    = 0.1358  (d0= 2.64)
+MaxSub-score= 0.1150  (d0= 3.50)
+GDT-TS-score= 0.1967 %(d<1)=0.0820 %(d<2)=0.0984 %(d<4)=0.1803 %(d<8)=0.4262
+GDT-HA-score= 0.1066 %(d<0.5)=0.0656 %(d<1)=0.0820 %(d<2)=0.0984 %(d<4)=0.1803
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1      2.1536299094  -0.3925595351   0.3450521768  -0.8525467768
+ 2    -28.3570385905  -0.3212853579   0.8171118433   0.4786480485
+ 3    -59.7298233546   0.8617846194   0.4618086517  -0.2099048332
+
+Superposition in the TM-score: Length(d<5.0)= 14  RMSD=  3.29
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+-----DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV
+               ::       :::::: :              :::::               
+DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV-----
+123456789012345678901234567890123456789012345678901234567890123456
+
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the similarity of protein structures         *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: zhng@umich.edu                             *
+ *****************************************************************************
+
+Structure1: /home/casp  Length=   61
+Structure2: /home/casp  Length=   61 (by which all scores are normalized)
+Number of residues in common=   56
+RMSD of  the common residues=   12.142
+
+TM-score    = 0.1722  (d0= 2.64)
+MaxSub-score= 0.1457  (d0= 3.50)
+GDT-TS-score= 0.2131 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.2295 %(d<8)=0.4262
+GDT-HA-score= 0.1230 %(d<0.5)=0.0656 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.2295
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1     61.8616881301   0.0320145500  -0.9510098252   0.3074985868
+ 2     14.8169076335   0.4118124967  -0.2677771754  -0.8710372276
+ 3    -44.9952928621   0.9107060646   0.1545176257   0.3830649648
+
+Superposition in the TM-score: Length(d<5.0)= 15  RMSD=  2.74
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+-----DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV
+                             :::::::::::::::                      
+DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV-----
+123456789012345678901234567890123456789012345678901234567890123456
+
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the similarity of protein structures         *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: zhng@umich.edu                             *
+ *****************************************************************************
+
+Structure1: /home/casp  Length=   61
+Structure2: /home/casp  Length=   61 (by which all scores are normalized)
+Number of residues in common=   56
+RMSD of  the common residues=   11.452
+
+TM-score    = 0.1602  (d0= 2.64)
+MaxSub-score= 0.1430  (d0= 3.50)
+GDT-TS-score= 0.2131 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.2131 %(d<8)=0.4426
+GDT-HA-score= 0.1189 %(d<0.5)=0.0656 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.2131
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1    -34.3532292346  -0.0424515728   0.7922418166   0.6087288131
+ 2    -45.0306032114   0.9924883963   0.1034095376  -0.0653701052
+ 3    -23.3371489022  -0.1147372960   0.6013812198  -0.7906807076
+
+Superposition in the TM-score: Length(d<5.0)= 13  RMSD=  2.47
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+-----DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV
+                             :::::::::    ::::                    
+DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV-----
+123456789012345678901234567890123456789012345678901234567890123456
+
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the similarity of protein structures         *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: zhng@umich.edu                             *
+ *****************************************************************************
+
+Structure1: /home/casp  Length=   61
+Structure2: /home/casp  Length=   61 (by which all scores are normalized)
+Number of residues in common=   56
+RMSD of  the common residues=   10.948
+
+TM-score    = 0.1658  (d0= 2.64)
+MaxSub-score= 0.1394  (d0= 3.50)
+GDT-TS-score= 0.2418 %(d<1)=0.0984 %(d<2)=0.1148 %(d<4)=0.2295 %(d<8)=0.5246
+GDT-HA-score= 0.1270 %(d<0.5)=0.0656 %(d<1)=0.0984 %(d<2)=0.1148 %(d<4)=0.2295
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1     55.0527964419  -0.6954667671  -0.3822913037  -0.6084236476
+ 2    -29.7175470040   0.1373812171   0.7603672848  -0.6347976003
+ 3     15.9455801526   0.7053030391  -0.5250666161  -0.4762905328
+
+Superposition in the TM-score: Length(d<5.0)= 13  RMSD=  2.54
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+-----DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV
+           :        :::::  ::                :::::                
+DESFLCYQPDQVCCFICRGAAPLPSEGECNPHPTAPWCREGAVEWVPYSTGQCRTTCIPYV-----
+123456789012345678901234567890123456789012345678901234567890123456
+
+Top 5 ClusterQA
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+
+TM-score    = 0.1400  (d0= 2.64)
+
+GDT-TS-score= 0.1885 %(d<1)=0.0820 %(d<2)=0.0984 %(d<4)=0.1967 %(d<8)=0.3770
+
+Superposition in the TM-score: Length(d<5.0)= 13  RMSD=  2.80
+
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+
+TM-score    = 0.1495  (d0= 2.64)
+
+GDT-TS-score= 0.2172 %(d<1)=0.0820 %(d<2)=0.1311 %(d<4)=0.2131 %(d<8)=0.4426
+
+Superposition in the TM-score: Length(d<5.0)= 12  RMSD=  2.59
+
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+
+TM-score    = 0.1524  (d0= 2.64)
+
+GDT-TS-score= 0.2131 %(d<1)=0.0820 %(d<2)=0.1311 %(d<4)=0.1967 %(d<8)=0.4426
+
+Superposition in the TM-score: Length(d<5.0)= 13  RMSD=  2.92
+
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+
+TM-score    = 0.1437  (d0= 2.64)
+
+GDT-TS-score= 0.2090 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.2131 %(d<8)=0.4262
+
+Superposition in the TM-score: Length(d<5.0)= 11  RMSD=  2.67
+
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+
+TM-score    = 0.1443  (d0= 2.64)
+
+GDT-TS-score= 0.2008 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.1803 %(d<8)=0.4262
+
+Top from top 5 clusters
+Superposition in the TM-score: Length(d<5.0)= 10  RMSD=  2.02
+
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+
+TM-score    = 0.1476  (d0= 2.64)
+
+GDT-TS-score= 0.2008 %(d<1)=0.0820 %(d<2)=0.1311 %(d<4)=0.1803 %(d<8)=0.4098
+
+Superposition in the TM-score: Length(d<5.0)= 10  RMSD=  2.57
+
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+
+TM-score    = 0.1358  (d0= 2.64)
+
+GDT-TS-score= 0.1967 %(d<1)=0.0820 %(d<2)=0.0984 %(d<4)=0.1803 %(d<8)=0.4262
+
+Superposition in the TM-score: Length(d<5.0)= 14  RMSD=  3.29
+
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+
+TM-score    = 0.1722  (d0= 2.64)
+
+GDT-TS-score= 0.2131 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.2295 %(d<8)=0.4262
+
+Superposition in the TM-score: Length(d<5.0)= 15  RMSD=  2.74
+
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+
+TM-score    = 0.1602  (d0= 2.64)
+
+GDT-TS-score= 0.2131 %(d<1)=0.0820 %(d<2)=0.1148 %(d<4)=0.2131 %(d<8)=0.4426
+
+Superposition in the TM-score: Length(d<5.0)= 13  RMSD=  2.47
+
+ *       0.0 < TM-score < 0.17, random structural similarity                 *
+
+ *       0.5 < TM-score < 1.00, in about the same fold                       *
+
+TM-score    = 0.1658  (d0= 2.64)
+
+GDT-TS-score= 0.2418 %(d<1)=0.0984 %(d<2)=0.1148 %(d<4)=0.2295 %(d<8)=0.5246
+
+Superposition in the TM-score: Length(d<5.0)= 13  RMSD=  2.54
+
