@@ -1,6 +1,7 @@
 import sys
 import os
 import numpy as np
+import collections
 modelsInfo = sys.argv[1]
 clusteredFile = sys.argv[2]
 kerasFile = sys.argv[3]
@@ -16,7 +17,7 @@ k = open(kerasFile, 'r')
 d = k.readlines()
 k.close()
 clusterQAModels = []
-clusterQAInfo = []
+clusterQAInfo = [0]*5
 for i in range(length):
 	line = d[i]
 	clusterQAModels.append(line[:line.rfind("\t")])
@@ -25,7 +26,7 @@ d = c.readlines()
 c.close()
 count = 0
 clusteredModels = []
-clusteredInfo = []
+clusteredInfo = [0]*5
 for i   in range(len(d)):
 	if 'Item' in d[i]:
 		count +=1
@@ -39,7 +40,7 @@ o = open( modelsInfo, 'r')
 data = o.readlines()
 o.close()
 deepRankModels = []
-deepRankInfo = []
+deepRankInfo = [0]*5
 
 deep = open(deepRankFile, 'r')
 d = deep.readlines()
@@ -48,47 +49,67 @@ for i in range(length):
         line = d[i]
 	deepRankModels.append(line[:line.rfind("\t")])
 SBRODModels = []
-SBRODInfo = []
+SBRODInfo = [0]*5
 s = open(SBRODFile, 'r')
 d = s.readlines()
 s.close()
-#for i in range(length):
-#        line = d[i]
-#	SBRODModels.append(line[:line.rfind("\t")])
-
+dict = {}
+for l in d:
+	line = l.split('\t')
+	line[0] = line[0][line[0].rfind('/')+1:]
+	if float(line[1]) in dict:
+		dict[float(line[1])]= dict[float(line[1])] + [(line[0])]
+	else:
+		dict[float(line[1])]= [(line[0])]
+sortedMods = collections.OrderedDict(sorted(dict.items()))
+k = list(sortedMods.keys())
+count = 0
+for i in range(len(k)):
+	key = k[len(sortedMods)-1-i]
+	v = sortedMods[key]
+	for m in v:
+		SBRODModels.append(str(m))
+		count +=1
+		if count==5:
+			break
+	if count==5:
+		break
 QprobModels = []
-QprobInfo = []
+QprobInfo = [0]*5
 q = open(QprobFile,'r')
 d = q.readlines()
 q.close()
 for i in range(length):
         line = d[i]
 	QprobModels.append(line[:line.rfind("\t")])
-#w.write("Top "+str(length)+" ClusterQA")
-#w.write('\nTop from top '+str(length)+' clusters')
 for l in data:
 	try:
 		num = (l[l.find('model_'):l.find('\t')])
         except:
                 continue
-	for m in clusterQAModels:
+	for i in range(len(clusterQAModels)):
+		m = clusterQAModels[i]
 		if m == num:
-			clusterQAInfo.append(l)
-	for m in clusteredModels:
+			clusterQAInfo[i] =l
+	for i in range(len(clusteredModels)):
+		m = clusteredModels[i]
 		if m == num:
-			clusteredInfo.append(l)
-	for m in deepRankModels:
+			clusteredInfo[i] =l
+	for i in range(len(deepRankModels)):
+		m = deepRankModels[i]
 		if m == num:
-			deepRankInfo.append(l)
-	for m in SBRODModels:
+			deepRankInfo[i] =l
+	for i in range(len(SBRODModels)):
+		m = SBRODModels[i]
 		if m == num:
-			SBRODInfo.append(l)
-	for m in QprobModels:
+			SBRODInfo[i] = l
+	for i in range(len(QprobModels)):
+		m = QprobModels[i]
 		if m == num:
-			QprobInfo.append(l)
+			QprobInfo[i]=l
 w = open(output, 'w')
 
-w.write('Results::\nTop from top '+str(length)+' clusters\n')
+w.write('Results::\nTop from top '+str(length)+' clusters')
 clusteredgts = []
 clusteredtm = []
 for i in range(length):
@@ -98,8 +119,8 @@ for i in range(length):
 	TM = float(line[3])
 	w.write('\nGDT-TS = %.4f' %(GTS))
 	w.write('\nTM-score = %.4f' %(TM))
-	clusteredgts.append(float('%.2f' %(GTS)))
-	clusteredtm.append(float('%.4f' %(TM)))
+	clusteredgts.append(GTS)
+	clusteredtm.append(TM)
 
 w.write('\n\nAverage GDT-TS = '+str(np.mean(np.asarray(clusteredgts))))
 w.write('\nAverage TM-score = '+str(np.mean(np.asarray(clusteredtm))))
@@ -112,9 +133,9 @@ for i in range(length):
 	line = clusterQAInfo[i].split('\t')
 	GTS = float(line[2])
         TM = float(line[3])
-        w.write('\nGDT-TS = %.2f' %(GTS))
+        w.write('\nGDT-TS = %.4f' %(GTS))
         w.write('\nTM-score = %.4f' %(TM))
-	clusterQAgts.append(float('%.2f' %(GTS)))
+	clusterQAgts.append(float('%.4f' %(GTS)))
         clusterQAtm.append(float('%.4f' %(TM)))
 w.write('\n\nAverage GDT-TS = '+str(np.mean(np.asarray(clusterQAgts))))
 w.write('\nAverage TM-score = '+str(np.mean(np.asarray(clusterQAtm))))
@@ -127,9 +148,9 @@ for i in range(length):
 	line = deepRankInfo[i].split('\t')
         GTS = float(line[2])
         TM = float(line[3])
-        w.write('\nGDT-TS = %.2f' %(GTS))
+        w.write('\nGDT-TS = %.4f' %(GTS))
         w.write('\nTM-score = %.4f' %(TM))
-	deepRankgts.append(float('%.2f' %(GTS)))
+	deepRankgts.append(float('%.4f' %(GTS)))
 	deepRanktm.append(float('%.4f' %(TM)))
 w.write('\n\nAverage GDT-TS = '+str(np.mean(np.asarray(deepRankgts))))
 w.write('\nAverage TM-score = '+str(np.mean(np.asarray(deepRanktm))))
@@ -142,10 +163,30 @@ for i in range(length):
 	line =  QprobInfo[i].split('\t')
 	GTS = float(line[2])
         TM = float(line[3])
-        w.write('\nGDT-TS = %.2f' %(GTS))
+        w.write('\nGDT-TS = %.4f' %(GTS))
         w.write('\nTM-score = %.4f' %(TM))
-        Qprobgts.append(float('%.2f' %(GTS)))
+        Qprobgts.append(float('%.4f' %(GTS)))
 	Qprobtm.append(float('%.4f' %(TM)))
 w.write('\n\nAverage GDT-TS = '+str(np.mean(np.asarray(Qprobgts))))
 w.write('\nAverage TM-score = '+str(np.mean(np.asarray(Qprobtm))))
+
+SBRODgts = []
+SBRODtm = []
+w.write("\n\nTop "+ str(length) + " SBROD")
+for i in range(length):
+	w.write('\n'+SBRODModels[i])
+	line = SBRODInfo[i].split('\t')
+	GTS = float(line[2])
+        TM = float(line[3])
+	w.write('\nGDT-TS = %.4f' %(GTS))
+        w.write('\nTM-score = %.4f' %(TM))
+	SBRODgts.append(float('%.4f' %(GTS)))
+	SBRODtm.append(float('%.4f' %(TM)))
+w.write('\n\nAverage GDT-TS = '+str(np.mean(np.asarray(SBRODgts))))
+w.write('\nAverage TM-score = '+str(np.mean(np.asarray(SBRODtm))))
+
+
+
+
+
 	

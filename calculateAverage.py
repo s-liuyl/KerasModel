@@ -18,10 +18,6 @@ QprobGTS = []
 QprobTM = []
 SBRODGTS = []
 SBRODTM = []
-first = 0
-second = 0
-third = 0
-fourth = 0
 for f in files:
 	o = open(f,'r')
 	d = o.readlines()
@@ -32,7 +28,6 @@ for f in files:
 			if count ==0:
 				clusgts = []
 				count+=1
-				first +=1
 				l = [d[i+2],d[i+5],d[i+8],d[i+11],d[i+14]]
 				for line in l:
 					clusgts.append(float(line[line.rfind('=')+2:]))
@@ -43,18 +38,15 @@ for f in files:
 					clustm.append(float(line[line.rfind('=')+2:]))
 				clusteredTM.append(np.amax(np.asarray(clustm)))
 			elif count==1:
-				second +=1
 				count+=1
                                 clusterQAGTS.append(float(d[i+2][d[i+2].rfind('=')+2:]))
                                 clusterQATM.append(float(d[i+3][d[i+3].rfind('=')+2:]))
 			elif count==2:
-                                count+=1  
-				third +=1
+                                count+=1
                                 deepRankGTS.append(float(d[i+2][d[i+2].rfind('=')+2:]))
                                 deepRankTM.append(float(d[i+3][d[i+3].rfind('=')+2:]))
 			elif count==3:
                                 count+=1
-				fourth +=1
                                 QprobGTS.append(float(d[i+2][d[i+2].rfind('=')+2:]))
                                 QprobTM.append(float(d[i+3][d[i+3].rfind('=')+2:]))
 			elif count ==4:
@@ -81,7 +73,6 @@ if len(sys.argv)==3:
 	w.write("Qprob Averages: GDT-TS = "+ str(np.mean(qgts))+ ", TM-score = "+ str(np.mean(qtm))+'\n\n')
 	w.write("SBROD Averages: GDT-TS = "+ str(np.mean(sbgts))+", TM-score = "+ str(np.mean(sbtm))+'\n\n')
 	w.close()
-
 print("Clustered Averages: GDT-TS = "+ str(np.mean(clusgts))+ ", TM-score = "+ str(np.mean(clustm)))
 print
 print("ClusterQA Averages: GDT-TS = "+ str(np.mean(cqagts))+ ", TM-score = "+ str(np.mean(cqatm)))

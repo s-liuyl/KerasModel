@@ -1,80 +1,100 @@
 Results::
 Top from top 5 clusters
 model_39656
-GDT-TS = 0.69
-TM-score = 0.6586
+GDT-TS = 0.5622
+TM-score = 0.5457
 model_47041
-GDT-TS = 0.58
+GDT-TS = 0.5839
 TM-score = 0.5914
 model_41595
-GDT-TS = 0.56
-TM-score = 0.5511
-model_7907
-GDT-TS = 0.56
-TM-score = 0.5457
-model_17107
-GDT-TS = 0.53
+GDT-TS = 0.5309
 TM-score = 0.5403
+model_7907
+GDT-TS = 0.6916
+TM-score = 0.6586
+model_17107
+GDT-TS = 0.5604
+TM-score = 0.5511
 
-Average GDT-TS = 0.584
-Average TM-score = 0.57742
+Average GDT-TS = 0.5858
+Average TM-score = 0.5774199999999999
 
 Top 5 ClusterQA
 model_8768
-GDT-TS = 0.70
-TM-score = 0.6909
-model_41387
-GDT-TS = 0.68
+GDT-TS = 0.6779
 TM-score = 0.6774
+model_41387
+GDT-TS = 0.6375
+TM-score = 0.6263
 model_21253
-GDT-TS = 0.70
+GDT-TS = 0.7043
 TM-score = 0.6640
 model_5855
-GDT-TS = 0.64
-TM-score = 0.6263
-model_38145
-GDT-TS = 0.55
+GDT-TS = 0.5523
 TM-score = 0.5618
+model_38145
+GDT-TS = 0.7011
+TM-score = 0.6909
 
-Average GDT-TS = 0.6540000000000001
+Average GDT-TS = 0.65462
 Average TM-score = 0.64408
 
 Top 5 DeepRank
 model_44730
-GDT-TS = 0.60
-TM-score = 0.6102
+GDT-TS = 0.5734
+TM-score = 0.5780
 model_26479
-GDT-TS = 0.60
+GDT-TS = 0.5962
 TM-score = 0.6102
 model_9375
-GDT-TS = 0.60
-TM-score = 0.5995
-model_6175
-GDT-TS = 0.59
+GDT-TS = 0.5874
 TM-score = 0.5806
+model_6175
+GDT-TS = 0.5957
+TM-score = 0.6102
 model_46272
-GDT-TS = 0.57
-TM-score = 0.5780
+GDT-TS = 0.6050
+TM-score = 0.5995
 
-Average GDT-TS = 0.5919999999999999
+Average GDT-TS = 0.59154
 Average TM-score = 0.5957
 
 Top 5 Qprob
 model_24918
-GDT-TS = 0.60
-TM-score = 0.5968
-model_29484
-GDT-TS = 0.54
-TM-score = 0.5753
-model_21086
-GDT-TS = 0.54
-TM-score = 0.5726
-model_18620
-GDT-TS = 0.55
-TM-score = 0.5645
-model_20362
-GDT-TS = 0.54
+GDT-TS = 0.5427
 TM-score = 0.5565
+model_29484
+GDT-TS = 0.5398
+TM-score = 0.5726
+model_21086
+GDT-TS = 0.5996
+TM-score = 0.5968
+model_18620
+GDT-TS = 0.5422
+TM-score = 0.5753
+model_20362
+GDT-TS = 0.5548
+TM-score = 0.5645
 
-Average GDT-TS = 0.554
-Average TM-score = 0.5731399999999999
+Average GDT-TS = 0.5558200000000001
+Average TM-score = 0.5731400000000001
+
+Top 5 SBROD
+model_46178
+GDT-TS = 0.5779
+TM-score = 0.5995
+model_45531
+GDT-TS = 0.4664
+TM-score = 0.4704
+model_39191
+GDT-TS = 0.5745
+TM-score = 0.5833
+model_23563
+GDT-TS = 0.5481
+TM-score = 0.5726
+model_29166
+GDT-TS = 0.5965
+TM-score = 0.5887
+
+Average GDT-TS = 0.55268
+Average TM-score = 0.5629
