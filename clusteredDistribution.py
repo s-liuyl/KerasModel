@@ -10,8 +10,7 @@ writeFile = sys.argv[2]
 name = sys.argv[3]
 resFolder = sys.argv[4]
 clusteredModels = sys.argv[5]
-gtsScores = sys.argv[6]
-tmScores = sys.argv[7]
+scores = sys.argv[6]
 if resFolder.rfind('/') !=len(resFolder)-1:
         resFolder = resFolder+'/'
 if clusteredModels.rfind('/') != len(resFolder)-1:
@@ -47,9 +46,9 @@ for l in data:
 		if inArrBinarySearch(models, 0, numModels-1, num):
 			count+=1
 			line = l.split('\t')
-			GTS = float(line[2])
-			TM = float(line[3])
-			GTStext = ("%.2f" %(GTS))
+			GTS = float(line[3])
+			TM = float(line[2])
+			GTStext = ("%.4f" %(GTS))
 			TMtext = ("%.4f" %(TM))
 			tm.append(TM)
 			gts.append(GTS)
@@ -83,23 +82,41 @@ for k, v in TMod.iteritems():
 	TMy.append(v)
         TMx.append(float(k))
 colors = ['m',  'g','c', 'b', 'y', 'k', ]
-gtsScores = gtsScores.split(',')
+read = open(scores, 'r')
+lines = read.readlines()
+read.close()
+gtsScores = []
+tmScores = []
+methods = []
+first = True
+for i in range(len(lines)):
+	line = lines[i]
+	if "Top" in line:
+		if first:
+			first = False
+			continue
+		method = line[line.rfind(' '):]
+		methods.append(method)
+		gdt_ts = lines[i+2]	
+		tm_score = lines[i+3]
+		gtsScores.append(float(gdt_ts[gdt_ts.rfind('=')+2:]))
+		tmScores.append(float(tm_score[tm_score.rfind('=')+2:]))
 plt.cla()
 plt.figure()
 plt.xlabel('GDT-TS score')
 plt.ylabel('frequency')
 for i in range(len(gtsScores)):
-	plt.axvline(x=int(gtsScores[i]),color = colors[i])
+	plt.axvline(x=float(gtsScores[i]),color = colors[i], label = methods[i])
 plt.plot(GTSx,GTSy,'r')
+plt.legend(loc='upper right')
 plt.savefig(resFolder+name+'GTS.png', format = 'png')
-tmScores = tmScores.split(',')
 plt.cla()
 plt.figure()
 for i in range(len(tmScores)):
-        plt.axvline(x=int(tmScores[i]),color = colors[i])
+	plt.axvline(x=float(tmScores[i]),color = colors[i], label = methods[i])
 plt.xlabel('GDT-TM score')
 plt.ylabel('frequency')
 plt.plot(TMx,TMy,'r')
+plt.legend(loc='upper right')
 plt.savefig(resFolder+name+'TM.png', format = 'png')
-
 print(count)
