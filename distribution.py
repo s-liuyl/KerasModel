@@ -26,8 +26,8 @@ for l in data:
 		line = l.split('\t')
 		GTS = float(line[3])
 		TM = float(line[2])
-		GTStext = ("%.2f" %(GTS))
-		TMtext = ("%.2f" %(TM))
+		GTStext = ("%.4f" %(GTS))
+		TMtext = ("%.4f" %(TM))
 		tm.append(TM)
 		gts.append(GTS)
 		if GTStext in GTSdict:
@@ -66,23 +66,31 @@ read.close()
 gtsScores = []
 tmScores = []
 methods = []
-first = True
+methodNum = 0
 for i in range(len(lines)):
 	line = lines[i]
 	if "Top" in line:
-		if first:
-			first = False
+		methodNum +=1
+		if methodNum != 1 and methodNum  != 2 and methodNum != 4:
 			continue
 		method = line[line.rfind(' '):]
+		if 'clusters' in method:
+			method = "Clustered"
+                if '\n' in method:
+                        method = method[:method.rfind('/')]		
+ 
 		methods.append(method)
 		gdt_ts = lines[i+2]	
 		tm_score = lines[i+3]
 		gtsScores.append(float(gdt_ts[gdt_ts.rfind('=')+2:]))
 		tmScores.append(float(tm_score[tm_score.rfind('=')+2:]))
+methods = ['Clustered','DeepCluster_QA','Qprob']
 plt.cla()
 plt.figure()
+plt.title('GDT-TS Score distribution of unclustered data')
 plt.xlabel('GDT-TS score')
 plt.ylabel('frequency')
+plt.xlim(0,1)
 for i in range(len(gtsScores)):
 	plt.axvline(x=float(gtsScores[i]),label = methods[i],color = colors[i])
 plt.plot(GTSx,GTSy,'r')
@@ -92,10 +100,12 @@ plt.cla()
 plt.figure()
 for i in range(len(tmScores)):
         plt.axvline(x=float(tmScores[i]),color = colors[i], label = methods[i])
-plt.xlabel('GDT-TM score')
+plt.xlabel('TM score')
+plt.title('TM-Score distribution of unclustered data')
 plt.ylabel('frequency')
 plt.plot(TMx,TMy,'r')
 plt.legend(loc='upper right')
+plt.xlim(0,1)
 plt.savefig(resFolder+name+'TM.png', format = 'png')
 
 print(count)

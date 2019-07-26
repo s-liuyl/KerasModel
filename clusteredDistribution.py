@@ -88,22 +88,30 @@ read.close()
 gtsScores = []
 tmScores = []
 methods = []
-first = True
+methodNum=0
 for i in range(len(lines)):
 	line = lines[i]
 	if "Top" in line:
-		if first:
-			first = False
-			continue
+                methodNum +=1
+                if methodNum != 1 and methodNum  != 2 and methodNum != 4:
+                        continue
+		
 		method = line[line.rfind(' '):]
+		if 'clusters' in method:
+			method = "Clustered"
+		if '\n' in method:
+			method = method[:method.rfind('/')]
 		methods.append(method)
 		gdt_ts = lines[i+2]	
 		tm_score = lines[i+3]
 		gtsScores.append(float(gdt_ts[gdt_ts.rfind('=')+2:]))
 		tmScores.append(float(tm_score[tm_score.rfind('=')+2:]))
+methods = ['Clustered','DeepCluster_QA','Qprob']
 plt.cla()
 plt.figure()
+plt.xlim(0,1)
 plt.xlabel('GDT-TS score')
+plt.title('GDT-TS Score distribution of clustered data')
 plt.ylabel('frequency')
 for i in range(len(gtsScores)):
 	plt.axvline(x=float(gtsScores[i]),color = colors[i], label = methods[i])
@@ -114,7 +122,9 @@ plt.cla()
 plt.figure()
 for i in range(len(tmScores)):
 	plt.axvline(x=float(tmScores[i]),color = colors[i], label = methods[i])
-plt.xlabel('GDT-TM score')
+plt.xlabel('TM score')
+plt.xlim(0,1)
+plt.title('TM-Score distribution of clustered data')
 plt.ylabel('frequency')
 plt.plot(TMx,TMy,'r')
 plt.legend(loc='upper right')

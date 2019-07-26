@@ -1,0 +1,36 @@
+1AIL
+GTS - minimum: 0.2286 maximum: 0.9929 average: 0.5731885080645163
+TM - minimum: 0.1771 maximum: 0.9719 average: 0.5085131515083632
+1BQ9
+GTS - minimum: 0.2406 maximum: 0.9151 average: 0.4325717458956823
+TM - minimum: 0.1619 maximum: 0.8505 average: 0.33288366844939715
+1C8CA
+GTS - minimum: 0.2227 maximum: 0.9336 average: 0.6187318855256742
+TM - minimum: 0.1678 maximum: 0.8897 average: 0.5528709313229062
+1CC5
+GTS - minimum: 0.2139 maximum: 0.6265 average: 0.3182964285023313
+TM - minimum: 0.1792 maximum: 0.6341 average: 0.2822351984057887
+1DTDB
+GTS - minimum: 0.0 maximum: 0.9959 average: 0.6104272231552322
+TM - minimum: 0.0 maximum: 0.9635 average: 0.545818792892538
+1DTJA
+GTS - minimum: 0.277 maximum: 0.9764 average: 0.6010408623846355
+TM - minimum: 0.2194 maximum: 0.9559 average: 0.5634488753129321
+1HHP
+GTS - minimum: 0.1212 maximum: 0.8813 average: 0.30058937287908133
+TM - minimum: 0.1334 maximum: 0.8924 average: 0.30661240054448896
+1HZ6A
+GTS - minimum: 0.2724 maximum: 0.959 average: 0.6453500400180952
+TM - minimum: 0.1975 maximum: 0.9227 average: 0.5698736124160491
+1ISUA
+GTS - minimum: 0.1815 maximum: 0.6452 average: 0.2906927451954937
+TM - minimum: 0.1328 maximum: 0.5905 average: 0.2280107736911862
+1SAP
+GTS - minimum: 0.2424 maximum: 0.8409 average: 0.6133421996133492
+TM - minimum: 0.1776 maximum: 0.7884 average: 0.5633946474252574
+1WAPA
+GTS - minimum: 0.1765 maximum: 0.9926 average: 0.42017656681005383
+TM - minimum: 0.1533 maximum: 0.9648 average: 0.37310412993576525
+2EZK
+GTS - minimum: 0.2554 maximum: 0.7581 average: 0.5078717843481033
+TM - minimum: 0.2515 maximum: 0.7738 average: 0.5037120477366911

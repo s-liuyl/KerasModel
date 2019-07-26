@@ -41,7 +41,8 @@ for line in data:
 		continue		
 	dataset.append(line.split(' '))
 features = len(dataset[0])-2
-
+print(labels)
+labels[len(labels)-1] = "21:DeepCluster_QA"
 X = []
 Y = []
 for i in range(len(dataset)):
@@ -152,11 +153,17 @@ for i in range(len(labels)):
 	if "feature_" in s:
 		s = s[s.rfind('feature_')+8:]
 	labels[i] = s
-
 i = np.arange(len(labels))
 resFolder = sys.argv[2]
 if resFolder.rfind('/') != len(resFolder)-1:
 	resFolder = resFolder+'/'
+print(avgC)
+print(avgL)
+for c in range(len(avgC)):
+	if avgL[c] <0:
+		avgL[c] = 0
+	if avgC[c] <0:
+		avgC[c] = 0
 plt.cla()
 plt.bar(i,avgL)
 plt.xlabel('Features', fontsize = 5)
