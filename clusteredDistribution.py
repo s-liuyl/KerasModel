@@ -1,3 +1,18 @@
+#######################################################################
+#                                                                     #
+#	clusteredDistribution.py				      #
+#								      #
+#	This file creates the distribution plots for the clustered    #
+#	models.							      #
+#								      #
+#	This file creates two .png files: one with the GDT-TS	      #
+#	distribution and one with the TM distribution. It also 	      #
+#	writes the minimum, maximum, and average GDT-TS and TM 	      #
+#	scores onto a designated .txt file. 			      #
+#								      #
+#	This file takes in 
+
+
 import sys
 import numpy as np
 import matplotlib 
