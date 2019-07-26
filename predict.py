@@ -15,8 +15,7 @@
 #	the h5 file as the third and fourth arguments, respectively.  #
 #                                                                     #
 #	After loading the model, it will predict the values of the    #
-#	last 10% of the dataset  a keras model using the last 10% of  #
-#	the dataset.                                                  #
+#	dataset given.						      #
 #                                                                     #
 #######################################################################
 
@@ -35,13 +34,13 @@ from sklearn.pipeline import Pipeline
 from keras.models import model_from_json
 from scipy.stats import pearsonr
 import sys
-inputfile = sys.argv[1]
-if(inputfile.rfind('/')==-1):
-	filename = inputfile[0:inputfile.rfind('.')]
+datafile = sys.argv[1]
+if(datafile.rfind('/')==-1):
+	filename = datafile[0:datafile.rfind('.')]
 else:
-	filename = inputfile[1+inputfile.rfind('/'):inputfile.rfind('.')]
+	filename = datafile[1+datafile.rfind('/'):datafile.rfind('.')]
 #load dataset
-f = open(inputfile, 'r')
+f = open(datafile, 'r')
 data = f.readlines()
 f.close()
 dataset = []
