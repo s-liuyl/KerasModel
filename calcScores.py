@@ -6,8 +6,9 @@
 #	QA method.						      #
 #								      #
 #	It takes 7 arguments: The complete model scores file, the     #
-#	MUFOLD_Cluster file, the DeepCluster_QA file, the SBROD       #
-#	file, the Qprob file, and the file to write the output.       #
+#	MUFOLD_Cluster file, the DeepCluster_QA file, the Human QA    #
+#	file, the SBROD file, the Qprob file, and the file to write   #
+#	the output.    						      #
 #								      #
 #######################################################################
 
