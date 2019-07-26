@@ -1,3 +1,17 @@
+#######################################################################
+#                                                                     #
+#	calculateAverage.py                                           #
+#                                                                     #
+#	This file calculates the average GDT-TS and TM scores for     #
+#	different methods. 					      #
+#								      #
+#	This file takes in one argument: the file created from 	      #
+#	compareMethods.py					      #
+#                                                                     #
+#######################################################################
+
+
+
 import sys
 import numpy as np
 folder = sys.argv[1]
