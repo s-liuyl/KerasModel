@@ -1,3 +1,16 @@
+#######################################################################
+#                                                                     #
+#	calcScores.py                                                 #
+#                                                                     #
+#	This file determines the top 5 GDT-TS and TM scores for each  #
+#	QA method.						      #
+#								      #
+#	It takes 7 arguments: The complete model scores file, the     #
+#	MUFOLD_Cluster file, the DeepCluster_QA file, the SBROD       #
+#	file, the Qprob file, and the file to write the output.       #
+#								      #
+#######################################################################
+
 import sys
 import os
 import numpy as np
@@ -5,7 +18,7 @@ import collections
 modelsInfo = sys.argv[1]
 clusteredFile = sys.argv[2]
 kerasFile = sys.argv[3]
-deepRankFile = sys.argv[4]
+humanQAFile = sys.argv[4]
 SBRODFile = sys.argv[5]
 QprobFile = sys.argv[6]
 output = sys.argv[7]
@@ -39,15 +52,15 @@ for i   in range(len(d)):
 o = open( modelsInfo, 'r')
 data = o.readlines()
 o.close()
-deepRankModels = []
-deepRankInfo = [0]*5
+humanQAModels = []
+humanQAInfo = [0]*5
 
-deep = open(deepRankFile, 'r')
+deep = open(humanQAFile, 'r')
 d = deep.readlines()
 deep.close()
 for i in range(length):
         line = d[i]
-	deepRankModels.append(line[:line.rfind("\t")])
+	humanQAModels.append(line[:line.rfind("\t")])
 SBRODModels = []
 SBRODInfo = [0]*5
 s = open(SBRODFile, 'r')
@@ -95,10 +108,10 @@ for l in data:
 		m = clusteredModels[i]
 		if m == num:
 			clusteredInfo[i] =l
-	for i in range(len(deepRankModels)):
-		m = deepRankModels[i]
+	for i in range(len(humanQAModels)):
+		m = humanQAModels[i]
 		if m == num:
-			deepRankInfo[i] =l
+			humanQAInfo[i] =l
 	for i in range(len(SBRODModels)):
 		m = SBRODModels[i]
 		if m == num:
@@ -140,20 +153,20 @@ for i in range(length):
 w.write('\n\nAverage GDT-TS = '+str(np.mean(np.asarray(clusterQAgts))))
 w.write('\nAverage TM-score = '+str(np.mean(np.asarray(clusterQAtm))))
 
-w.write("\n\nTop "+str(length)+" DeepRank")
-deepRankgts = []
-deepRanktm = []
+w.write("\n\nTop "+str(length)+" HumanQA")
+humanQAgts = []
+humanQAtm = []
 for i in range(length):
-	w.write('\n'+deepRankModels[i])
-	line = deepRankInfo[i].split('\t')
+	w.write('\n'+humanQAModels[i])
+	line = humanQAInfo[i].split('\t')
         GTS = float(line[3])
         TM = float(line[2])
         w.write('\nGDT-TS = %.4f' %(GTS))
         w.write('\nTM-score = %.4f' %(TM))
-	deepRankgts.append(float('%.4f' %(GTS)))
-	deepRanktm.append(float('%.4f' %(TM)))
-w.write('\n\nAverage GDT-TS = '+str(np.mean(np.asarray(deepRankgts))))
-w.write('\nAverage TM-score = '+str(np.mean(np.asarray(deepRanktm))))
+	humanQAgts.append(float('%.4f' %(GTS)))
+	humanQAtm.append(float('%.4f' %(TM)))
+w.write('\n\nAverage GDT-TS = '+str(np.mean(np.asarray(humanQAgts))))
+w.write('\nAverage TM-score = '+str(np.mean(np.asarray(humanQAtm))))
 					
 Qprobgts = []
 Qprobtm = []
