@@ -1,9 +1,23 @@
+#######################################################################
+#                                                                     #
+#	split9010.py                                                  #
+#                                                                     #
+#       This code splits a dataset into two files: one with the       #
+#	first 90% of targets and one with the last 10% of targets.    #
+#                                                                     #
+#	This code requires 1 arguments: the dataset file              #
+#	and the directory to save the model.                          #
+#                                                                     #
+#	These will be saved in one .txt file with the first 90%       #
+#	of targets and one .txt file with the last 10% of targets.    #
+#                                                                     #
+#######################################################################
 import sys
 import numpy
-inputFile = sys.argv[1]
-filename = inputFile[:inputFile.rfind('.')]
+dataFile = sys.argv[1]
+filename = dataFile[:dataFile.rfind('.')]
 #load dataset
-f = open(inputFile, 'r')
+f = open(dataFile, 'r')
 data = f.readlines()
 f.close()
  
