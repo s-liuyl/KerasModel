@@ -31,26 +31,26 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 import sys
 
-inputfile = sys.argv[1]
-resFolder = sys.argv[2]
-if resFolder.rfind('/') != len(resFolder)-1:
-        resFolder = resFolder+'/'
+datafile = sys.argv[1]
+resultsFolder = sys.argv[2]
+if resultsFolder.rfind('/') != len(resultsFolder)-1:
+        resultsFolder = resultsFolder+'/'
 
 if len(sys.argv) == 4 and '.txt' not in sys.argv[3]:
-	filename = resFolder+sys.argv[3]
+	filename = resultsFolder+sys.argv[3]
 elif len(sys.argv) == 5:
 	if '.txt' not in sys.argv[3]:
-		filename = resFolder+sys.argv[3]
+		filename = resultsFolder+sys.argv[3]
 	else:
-		filename = resFolder+sys.argv[4]
+		filename = resultsFolder+sys.argv[4]
 else:
-	if(inputfile.rfind('/')== -1):
-        	filename =resFolder+"model90percent_"+ (inputfile[0:inputfile.rfind('.')])
+	if(datafile.rfind('/')== -1):
+        	filename =resultsFolder+"model90percent_"+ (datafile[0:datafile.rfind('.')])
 	else:
-        	filename =resFolder+"model90percent_"+ (inputfile[1+inputfile.rfind('/'):inputfile.rfind('.')])
+        	filename =resultsFolder+"model90percent_"+ (datafile[1+datafile.rfind('/'):datafile.rfind('.')])
 
 #load dataset
-f = open(inputfile, 'r')
+f = open(datafile, 'r')
 data = f.readlines()
 f.close()
 dataset = []
