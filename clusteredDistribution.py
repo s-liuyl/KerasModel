@@ -10,8 +10,13 @@
 #	writes the minimum, maximum, and average GDT-TS and TM 	      #
 #	scores onto a designated .txt file. 			      #
 #								      #
-#	This file takes in 
-
+#	This file takes 6 arguments: The complete model scores file,  #
+#	the file to write the output, the name of the target protein, #
+#	the results directory, the directory with the .pdb files of   #
+#	all the clustered models, and the file with the results from  #
+#	compareMethods.py.					      #
+#								      #
+#######################################################################
 
 import sys
 import numpy as np
@@ -20,7 +25,7 @@ matplotlib.use('Agg')
 import  matplotlib.pyplot as plt
 import collections 
 import glob
-inputfile = sys.argv[1]
+datafile = sys.argv[1]
 writeFile = sys.argv[2]
 name = sys.argv[3]
 resFolder = sys.argv[4]
@@ -31,7 +36,7 @@ if resFolder.rfind('/') !=len(resFolder)-1:
 if clusteredModels.rfind('/') != len(resFolder)-1:
         clusteredModels += '/'
 clusteredModels +='*'
-r = open(inputfile, 'r')
+r = open(datafile, 'r')
 data = r.readlines()
 r.close()
 gts = []
