@@ -1,3 +1,16 @@
+#################################################
+#						#
+#	makeClusteredFolder.py			#
+#						#
+#	This file copies the top 20 models per 	#
+#	cluster to a specified folder.		#
+#						#
+#	This file takes in three arguments:	#
+#	the MUFOLD_cluster file, the folder	#	
+#	with all the models, and the folder	#
+#	to copy the top clustered models.	#
+#						#
+#################################################
 import sys
 import shutil
 log = sys.argv[1]
