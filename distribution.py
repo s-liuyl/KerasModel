@@ -1,3 +1,22 @@
+#######################################################################
+#                                                                     #
+#	distribution.py				    		      #
+#								      #
+#	This file creates the distribution plots for all models of    #
+#	a single target.					      #
+#								      #
+#	This file creates two .png files: one with the GDT-TS	      #
+#	distribution and one with the TM distribution. It also 	      #
+#	writes the minimum, maximum, and average GDT-TS and TM 	      #
+#	scores onto a designated .txt file. 			      #
+#								      #
+#	This file takes 5 arguments: The complete model scores file,  #
+#	the file to write the output, the name of the target protein, #
+#	the results directory, and the file with the results from     #
+#	compareMethods.py.					      #
+#								      #
+#######################################################################
+
 import sys
 import numpy as np
 import matplotlib 
