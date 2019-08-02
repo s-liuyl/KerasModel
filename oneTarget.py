@@ -1,3 +1,24 @@
+#################################################
+#						#
+#	oneTarget.py				#
+#						#
+#	This file takes in two required 	#
+#	arguments: the template dataset	file 	#
+#	and the ALL_scores folder.		#
+#						#
+#	This file can take in an optional 	#	
+#	argument: the resulting .txt file 	#	
+#	name.					#
+#						#
+#	This file creates the .txt file for 	#
+#	one target using the information in 	#
+#	its ALL_scores folder. It will format	#	
+#	the file and order the features 	#
+#	according to the dataset file that is	# 
+#	provided.				#
+#						#
+#################################################
+
 import numpy
 import sys
 import math
