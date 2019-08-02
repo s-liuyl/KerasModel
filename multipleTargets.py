@@ -1,3 +1,26 @@
+#################################################
+#						#
+#	multipleTargets.py			#
+#						#
+#	This file takes in two required 	#
+#	arguments: the template dataset	file 	#
+#	and the folder with all the targets'	#
+#	folders, each with an ALL_scores 	#	
+#	folder.					#
+#						#
+#	This file can take in an optional 	#	
+#	argument: the resulting .txt file 	#	
+#	name.					#
+#						#
+#	This file creates the .txt file for 	#
+#	all targets using the information in 	#
+#	each ALL_scores folder. It will format	#	
+#	the file and order the features 	#
+#	according to the dataset file that is	# 
+#	provided.				#
+#						#
+#################################################
+
 import numpy
 import sys
 import math
