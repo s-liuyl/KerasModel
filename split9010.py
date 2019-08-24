@@ -5,8 +5,9 @@
 #       This code splits a dataset into two files: one with the       #
 #	first 90% of targets and one with the last 10% of targets.    #
 #                                                                     #
-#	This code requires 1 arguments: the dataset file              #
-#	and the directory to save the model.                          #
+#	This code requires 1 arguments: the dataset file. The files   #
+#	will be saved into .txt files in the same directory as this   #
+#	file.
 #                                                                     #
 #	These will be saved in one .txt file with the first 90%       #
 #	of targets and one .txt file with the last 10% of targets.    #
