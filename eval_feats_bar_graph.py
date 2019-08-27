@@ -41,7 +41,6 @@ for line in data:
 		continue		
 	dataset.append(line.split(' '))
 features = len(dataset[0])-2
-print(labels)
 labels[len(labels)-1] = "21:DeepCluster_QA"
 X = []
 Y = []
@@ -157,8 +156,6 @@ i = np.arange(len(labels))
 resFolder = sys.argv[2]
 if resFolder.rfind('/') != len(resFolder)-1:
 	resFolder = resFolder+'/'
-print(avgC)
-print(avgL)
 for c in range(len(avgC)):
 	if avgL[c] <0:
 		avgL[c] = 0
